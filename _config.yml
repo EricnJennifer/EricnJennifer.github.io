@@ -1,17 +1,17 @@
-title: John Smith
+title: Mark Lee(이원하)
 description: My Personal Blog
-author: John Smith
+author: Mark Lee
 logo: /hcz-jekyll-blog/static/img/avatar.png
-github: https://github.com/codeasashu
-about: Freelance developer
+github: https://github.com/ericnjennifer
+about: Developer(?)
 
 baseurl: ""
 url: ""
 
 allowsearch: true
 
-disqus_shortname: aboutashu
-google_analytics: UA-72862926-1
+#disqus_shortname: aboutashu
+#google_analytics: UA-72862926-1
 
 share:
   twitter_username: \#
