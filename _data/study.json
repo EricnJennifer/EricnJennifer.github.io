@@ -9,21 +9,21 @@
 	{
 		"name": "PYTHON 시각화",
 		"image": "test.jpg",
-		"url": "/study/python_visualization",
-		"date": "Aug 2018",
+		"url": "/python_visualization",
+		"date": "Aug 2017",
 		"tags": ["PYTHON"]
 	},
 	{
 		"name": "아빠와 함께하는 C",
 		"image": "test.jpg",
-		"url": "c.html",
+		"url": "/c",
 		"date": "Jan 2018",
 		"tags": ["C","정보올림피아드"]
 	},
 	{
 		"name": "정보올림피아드 풀이",
 		"image": "test.jpg",
-		"url": "c_koi.html",
+		"url": "/koi",
 		"date": "Jan 2018",
 		"tags": ["정보올림피아드", "C"]
 	}
