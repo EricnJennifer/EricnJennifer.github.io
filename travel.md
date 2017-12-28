@@ -4,7 +4,7 @@ title: Eric군 Jennifer양의 여행 이야기
 ---
 <div class="well">
     <div class="list-group">
-      {% for post in site.posts %} 
+      {% for post in site.python_basic %} 
       <div class="list-group-item">
         <div class="row-action-primary">
           <i class="fa fa-sticky-note"></i>
