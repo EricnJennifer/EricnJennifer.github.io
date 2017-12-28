@@ -1,14 +1,14 @@
 [
 	{
 		"name": "PYTHON 기초",
-		"image": "python_basic.jpg",
+		"image": "python.png",
 		"url": "/python_basic",
 		"date": "Aug 2017",
 		"tags": ["PYTHON"]
 	},
 	{
 		"name": "PYTHON 시각화",
-		"image": "test.jpg",
+		"image": "python_book.png",
 		"url": "/python_visualization",
 		"date": "Aug 2017",
 		"tags": ["PYTHON"]
