@@ -1,6 +1,6 @@
 ---
 layout: project
-title: Projects
+title: Computer Language Studies
 permalink: /projects/
 ---
 
