@@ -4,7 +4,8 @@ title: PYTHON 기초로의 여행
 ---
 <div class="well">
     <div class="list-group">
-      {% for post in site.python_basic %}
+      {% for post in site.posts %}
+      {% if post.categories contains 'python_basic' %}
       <div class="list-group-item">
         <div class="row-action-primary">
           <i class="fa fa-sticky-note"></i>
@@ -17,6 +18,7 @@ title: PYTHON 기초로의 여행
         </div>
       </div>
       <div class="list-group-separator"></div>
+      {% endif %}
       {% endfor %}
     </div>
    
