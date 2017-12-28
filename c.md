@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PYTHON 기초로의 여행
+title: 아빠와 함께 C를
 ---
 <div class="well">
     <div class="list-group">
