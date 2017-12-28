@@ -18,7 +18,8 @@ date: 2017-12-28 02:01:00
 먼저 [그림 1]처럼 파이썬 메뉴에서 IDLE를 실행한다.
 <br/>
 <br/>
--> ![](/asset/study/python_basic/2/1.png) <-
+![](/asset/study/python_basic/2/1.png)
+{: .aligncenter}
 [그림 1] Python 3.5 메뉴
 {: style="text-align: center;"}
 <br/>
