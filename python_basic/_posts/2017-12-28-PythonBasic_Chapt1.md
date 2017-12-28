@@ -6,7 +6,9 @@ categories: python_basic
 ---
 
 파이썬(Python)은 프로그래머인 귀도 반 로섬(Guido van Rossum)이 1991년도에 발표한 프로그래밍 언어로, 플랫폼 독립적이며 인터프리터(Interpreter)식, 객체지향적(object oriented), 동적 타이핑(dynamically typed) 대화형 언어이다. 파이썬이라는 이름은 귀도가 좋아하는 코미디 〈Monty Python's Flying Circus: 몬티 파이썬의 날으는 써커스〉에서 따온 것이라고 한다. 파이썬은 고대 그리스 신화에 나오는 큰 뱀을 의미하며, 이 때문에 파이썬의 로고로 뱀 모양을 사용하고 있다.
+
 파이썬은 비영리로 운영되는 ‘파이썬 소프트웨어 재단’이 관리하는 개방형, 공동체 기반 개발 모델을 가지고 있으며 무료로 누구나 다운로드 받아 사용 가능하다.
+
 파이썬을 다운로드 받기 위하여 공식 홈페이지인 https://www.python.org로 이동하면 [그림 1]과 같이 메인 홈페이지를 만날 수 있다.
 
 ![파이썬 설치](/asset/study/python_basic/1/1.png)
