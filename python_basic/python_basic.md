@@ -1,6 +1,6 @@
 ---
 layout: default
-title: PYTHON 기초로의 여행
+title: PYTHON 기초로의 여행 - python basic folder
 ---
 <div class="well">
     <div class="list-group">
