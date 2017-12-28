@@ -1,6 +1,6 @@
 ---
 layout: post_study
-title:  시작하기 : PYTHON 설치
+title:  시작하기 :: PYTHON 설치
 date: 2017-12-28 01:01:00
 categories: python_basic
 ---
