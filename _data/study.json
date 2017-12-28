@@ -8,8 +8,8 @@
 	},
 	{
 		"name": "PYTHON 시각화",
-		"image": "/study/python_visualization",
-		"url": "python_visualization.html",
+		"image": "test.jpg",
+		"url": "/study/python_visualization",
 		"date": "Aug 2018",
 		"tags": ["PYTHON"]
 	},
