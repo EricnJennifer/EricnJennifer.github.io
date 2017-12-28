@@ -8,7 +8,7 @@
 	},
 	{
 		"name": "PYTHON 시각화",
-		"image": "test.jpg",
+		"image": "/study/python_visualization",
 		"url": "python_visualization.html",
 		"date": "Aug 2018",
 		"tags": ["PYTHON"]
