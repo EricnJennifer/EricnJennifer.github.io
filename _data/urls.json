@@ -6,14 +6,9 @@
     "layout": "post"
   },
   {
-    "text": "study",
-    "url": "/#",
-    "icon": "fa-graduation-cap",
-  },
-  {
-    "text": "Projects",
+    "text": "Study",
     "url": "/projects",
-    "icon": "fa-desktop"
+    "icon": "fa-graduation-cap"
   },
   {
     "text": "Travel",
