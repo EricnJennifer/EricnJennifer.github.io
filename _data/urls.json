@@ -7,12 +7,12 @@
   },
   {
     "text": "Study",
-    "url": "/projects",
+    "url": "/study",
     "icon": "fa-graduation-cap"
   },
   {
     "text": "Travel",
-    "url": "/about/",
+    "url": "/travel/",
     "icon": "fa-photo"
   }
 ]
