@@ -1,7 +1,7 @@
 ---
-layout: project
-title: Study
-permalink: /studies/
+layout: study
+title: Computer Language Studies
+permalink: /study/
 ---
 
-재미있는 프로그래밍 이야기 ^^
+Welcome to Computer Language Study
