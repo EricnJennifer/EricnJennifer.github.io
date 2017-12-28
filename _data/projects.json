@@ -14,10 +14,17 @@
 		"tags": ["PYTHON"]
 	},
 	{
-		"name": "아빠와 함께하는 C(정보올림피아드)",
+		"name": "아빠와 함께하는 C",
 		"image": "placeholder.jpg",
 		"url": "#",
 		"date": "Jan 2018",
 		"tags": ["C","정보올림피아드"]
+	},
+	{
+		"name": "정보올림피아드 문제풀이",
+		"image": "placeholder.jpg",
+		"url": "#",
+		"date": "Jan 2018",
+		"tags": ["정보올림피아드", "C"]
 	}
 ]
