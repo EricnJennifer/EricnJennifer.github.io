@@ -4,11 +4,11 @@ title: Eric군 Jennifer양의 여행 이야기
 ---
 <div class="well">
     <div class="list-group">
-      {% for post in site.python_basic %}
-      {% if post.categories contains "python_basic" %}
+      {% for post in site.posts %}
+      {% if post.categories contains "travel" %}
       <div class="list-group-item">
         <div class="row-action-primary">
-          <i class="fa fa-sticky-note"></i>
+          <img src="{{ post.img }}" width="100" height="100">
         </div>
         <div class="row-content">
           <div class="least-content">{{ post.date | date_to_string }}</div>
