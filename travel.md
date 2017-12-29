@@ -8,7 +8,7 @@ title: Eric군 Jennifer양의 여행 이야기
       {% if post.categories contains "travel" %}
       <article class="post">
         {% if post.img %}
-            <a class="post-thumbnail" style="background-image: url({{"/assets/img/" | prepend: site.baseurl | append : post.img}})" href="{{post.url | prepend: site.baseurl}}"></a>
+            <a class="post-thumbnail" style="background-image: url({{"/asset/travel/" | prepend: site.baseurl | append : post.img}})" href="{{post.url | prepend: site.baseurl}}"></a>
         {% else %}
         {% endif %}
   <div class="post-content">
