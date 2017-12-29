@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Eric군 Jennifer양의 여행 이야기
+permalink: /travel/
 ---
 <div class="well">
     <div class="list-group">
