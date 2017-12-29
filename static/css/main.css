@@ -220,3 +220,6 @@ footer {
     position: absolute;
     right: 12px;
 }
+
+.borderBox {vertical-align:middle; text-align: center;  font-size: 90%;}
+.borderBox img {display: block; margin: auto;}
