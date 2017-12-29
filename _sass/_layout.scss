@@ -284,11 +284,37 @@ img.aligncenter{display:block;margin:0 auto}
           box-shadow: 0 15px 45px -10px rgba(10, 16, 34, 0.2);
 }
 
-.thumbnail .bg {
+.thumbnail .post-thumbnail {
   width: 30%;
   max-width: 100%;
   min-height: 11rem;
   -webkit-background-size: cover;
           background-size: cover;
   background-position: 50% 50%;
+}
+
+.thumbnail .post-content {
+  padding: 1rem;
+  width: 70%;
+}
+
+.thumbnail .post-content .post-date,
+.thumbnail .post-content .post-words {
+  font-size: 12px;
+}
+
+.thumbnail .post-content .post-title {
+  margin: 0 0 10px;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.thumbnail .post-content .post-title a {
+  font-family: 'PT Serif', serif;
+  text-decoration: none;
+  color: #263959;
+}
+
+.thumbnail .post-content p {
+  margin-top: 0;
 }
