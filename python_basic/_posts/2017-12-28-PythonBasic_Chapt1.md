@@ -76,6 +76,7 @@ categories: python_basic
 | ambrosia | gala | red delicious |
 | pink lady | jazz | macintosh |
 | honeycrisp | granny smith | fuji |
+| honeycrisp | granny smith | fuji |
 
 [그림 7]은 파이썬 기본 프로그램에 추가적으로 설치가 가능한 옵션을 선택하는 창이다. 선택할 수 있는 옵션의 각 기능은 다음과 같다.
 <br />
