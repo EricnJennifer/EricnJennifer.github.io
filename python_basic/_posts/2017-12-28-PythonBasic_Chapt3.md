@@ -23,6 +23,7 @@ date: 2017-12-28 03:01:00
 <br/>
 앞에서 주문한 물건을 받기 위해서 주소가 같으면 안된다고 이야기하였는데, 또 한가지 주의할 점은 파이썬에서 사용하는 예약어나 함수명을 변수로 사용해서는 안된다는 것이다. 만약 변수명을 print 라고 한다면 파이썬은 화면에 어떤 값을 출력하라는 것인지 아니면 변수로 어떤 값을 보관하고 있어야 하는 것인지 알 수 없기 때문이다.
 <br/>
+<br/>
 
 ### 2.1 숫자형
 <br/>
@@ -160,6 +161,7 @@ he said that "she's gone"
 파이썬뿐만 아니라 여러 프로그래밍 언어는 이스케이프 문자를 지원한다. 이스케이프 문자란 미리 정의해놓은 문자로 특정 기능을 수행한다. 이스케이프 문자는 여러 가지가 있으나 주로 사용하는 것은 다음과 같다.
 <br/>
 <br/>
+
 | 이스케이프 문자 | 기능 | 예제 |
 | -------- | -------- | -------- |
 | \n |	줄 바꿈 | >>> print (“HI\nHELLO”)<br/>HI<br/>HELLO|
@@ -225,6 +227,223 @@ NICE TO MEET YOU
 
 <br/>
 <br/>
+#### 5) 문자열 처리
+<br/>
+나중에 조금 복잡한 프로그래밍을 하다 보면 문자열에서 특정한 위치의 문자가 무엇인지 확인하거나 특정 부분의 문자열을 잘라내는 처리를 해야 하는 경우가 있다. 이러한 문자열을 처리하는 방법을 알기 위하여 인덱스(index)라는 개념에 대해 이해를 하여야 한다.
+<br/>
+<br/>
 
+![](/asset/study/python_basic/2/10.png)
+[그림 2] 변수의 생성과 값의 입력
+{: .borderBox}
+<br/>
+<br/>
+문자열은 0을 시작으로 하는 고유의 길이를 가진다. 위 문장은 총 15개의 문자를 가지고 있으며 각 문자는 고유의 인덱스(index) 번호를 가진다. 즉 ‘I’는 문자열의 8번쨰이며, ‘S’는 문자열의 9번째이다. 음의 인덱스는 문자의 뒤쪽부터 계산되며, 맨 마지막 글자는 ‘-1’의 인덱스를 가진다(실제 문자열의 맨 마지막에는 null 이라는 문자가 하나 더 있기 때문에 그렇다).
+<br/>
+<br/>
 
+{% highlight python %}
+>>> a = "MY NAME IS MARK"
+>>> a[8]
+'I'
+>>> a[9]
+'S'
+>>> a[-7]
+'I'
+>>> a[-6]
+'S'
+{% endhighlight %}
+
+<br/>
+<br/>
+문자열을 처리하는데 필요한 또 하나의 개념은 슬라이스(slice)이다. 슬라이스는 영어 뜻에서 의미하듯이 하나의 조각을 의미한다. 다음의 예를 확인해 보자.
+<br/>
+<br/>
+
+{% highlight python %}
+>>> a[0:2]
+'MY'
+>>> a[8:10]
+'IS'
+>>> a[8:9]
+'I'
+>>> a[11:]
+'MARK'
+>>> a = "2017-06-25"
+>>> year = a[0:4]
+>>> month = a[5:7]
+>>> day = a[8:]
+>>> print(year)
+2017
+>>> print(month)
+06
+>>> print(day)
+25
+{% endhighlight %}
+
+<br/>
+<br/>
+슬라이스를 이용하여 특정 문자열을 추출하는 경우에는 변수명[인덱스시작번호:인덱스마지막번호+1]로 처리한다. 만약 인덱스의 마지막을 입력하지 않으면 문자의 마지막을 의미한다.
+<br/>
+<br/>
+#### 6) 문자열 포맷팅(formatting)
+<br/>
+문자열을 생성하고 출력하는 경우에 단순하게 여러 문자을 합치는 것이 아니라 특정한 값을 포함하고 싶은 경우가 있다. 이런 경우에 사용하는 함수가 format()이다.
+<br/>
+<br/>
+
+{% highlight python %}
+>>> age = 20
+>>> name = "Mark"
+>>> print (name + " is " + str(age) + " years old")
+Mark is 20 years old
+>>> print ("{0} is {1} years old".format(name, age))
+Mark is 20 years old
+>>> print("%s is %d years old" % (name, age))
+Mark is 20 years old
+{% endhighlight %}
+
+<br/>
+<br/>
+위의 예에서 ‘%s’와 같은 형식을 포맷팅 코드라고 한다. 파이썬에서 사용하는 포맷팅코드는 다음과 같다. (주의: 포맷팅 코드를 사용하면서 ‘%’를 사용해야 하는 경우에는 ‘%%’로 입력해야 파이썬 인터프리터가 혼동하지 않는다)
+
+| 포맷팅코드 | 설명 |
+| -------- | -------- |
+|%s|문자열(string): 모든 변수(정수, 실수 등)는 %s를 이용하여 출력할 수 있다|
+|%d|정수|
+|%c|문자(character)|
+|%f|실수: ‘%5.7f’와 같은 형식을 사용할 경우에는 정수부분은 5자리(모자라면 공백으로 채운다)로 표시하고 소수점은 7자리까지 표현한다|
+|%o|8진수|
+|%x|16진수|
+{: .table table-striped}
+
+<br/>
+<br/>
+#### 7) 문자열 관련 함수(function)
+<br/>
+파이썬에서는 문자열 처리를 위하여 미리 만들어 놓은 여러 개의 함수가 있다.
+<br/>
+<br/>
+##### a. 특정 문자 개수: count()
+
+{% highlight python %}
+>>> a = "My Name is Mark"
+>>> a.count('M')
+2
+>>> a.count('My')
+1
+{% endhighlight %}
+
+<br/>
+<br/>
+##### b. 문자 길이: len()
+
+{% highlight python %}
+>>> a = "My Name is Mark"
+>>> len(a)
+15
+{% endhighlight %}
+
+<br/>
+<br/>
+##### c. 특정 글자의 위치: find()
+
+{% highlight python %}
+>>> a = "My Name is Mark"
+>>> a.find('i')
+8
+>>> a.find('I') #대소문자를 구별한다
+-1
+>>> a.find('M') #가장 먼저 찾은 인덱스를 반환한다
+0
+>>> a.find('m')
+5
+>>> a.find('is') #찾은 문자열의 맨 처음 인덱스를 반환한다
+8
+{% endhighlight %}
+
+<br/>
+<br/>
+##### d. 소문자 -> 대문자: upper()
+
+{% highlight python %}
+>>> a = "My Name is Mark"
+>>> a.upper()
+'MY NAME IS MARK'
+{% endhighlight %}
+
+<br/>
+<br/>
+##### e. 대문자 -> 소문자: lower()
+
+{% highlight python %}
+>>> a = "My Name is Mark"
+>>> a.lower()
+'my name is mark'
+{% endhighlight %}
+
+<br/>
+<br/>
+##### f. 공백 삭제: lstrip(), rstrip(), strip()
+
+{% highlight python %}
+>>> a = "     My Name is Mark     "
+>>> a.lstrip()
+'My Name is Mark     '
+>>> a.rstrip()
+'     My Name is Mark'
+>>> a.strip()
+'My Name is Mark'
+{% endhighlight %}
+
+<br/>
+<br/>
+##### g. 문자열 치환: replace()
+
+{% highlight python %}
+>>> a  = "My name is Mark"
+>>> a.replace('Mark', 'James')
+'My name is James
+{% endhighlight %}
+
+<br/>
+<br/>
+##### h. 숫자 -> 문자 변환: str()
+
+{% highlight python %}
+>>> a = 10
+>>> print(10)
+10
+>>> print(str(10))
+10
+>>> age = 20
+>>> name = "Mark"
+>>> print (name + " is " + age + " years old")
+Traceback (most recent call last):
+  File "<pyshell#45>", line 1, in <module>
+    print (name + " is " + age + " years old")
+TypeError: Can't convert 'int' object to str implicitly
+>>> print (name + " is " + str(age) + " years old")
+Mark is 20 years old
+{% endhighlight %}
+
+<br/>
+<br/>
+위에서 age라는 변수를 print() 함수에서 사용하면 오류가 발생한다. 문자열을 구성하기 위하여 ‘+’ 연산자를 사용하였는데 정수형 변수가 나오니 인터프리터는 합산을 해야 하는지 문자열을 결합해야 하는지 확정할 수 없기 때문이다.
+<br/>
+<br/>
+##### i. 문자열 분리: split()
+
+{% highlight python %}
+>>> a = "My Name is Mark"
+>>> a.split()
+['My', 'Name', 'is', 'Mark']
+>>> a = "2017-06-25"
+>>> a.split('-')
+['2017', '06', '25']
+{% endhighlight %}
+
+<br/>
+<br/>
+split() 함수는 인자를 아무것도 넣어주지 않으면 공백(space)을 기준으로 나누어 주며, 특정 문자를 기준으로 나눌 수 있다. 결과값을 보면 ['2017', '06', '25'] 과 같이 출력되는데 이러한 형식을 리스트라고 한다. 리스트에 대해서는 다음 절에서 설명하도록 하겠다.
 
