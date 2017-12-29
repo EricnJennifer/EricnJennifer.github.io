@@ -1,6 +1,6 @@
 ---
 layout: post_study
-title:  PYTHON 시작전 알아둘 사항
+title:  1. 시작하기 전에 알아둘 사항
 date: 2017-12-28 02:01:00
 ---
 # 파이썬 프로그래밍
