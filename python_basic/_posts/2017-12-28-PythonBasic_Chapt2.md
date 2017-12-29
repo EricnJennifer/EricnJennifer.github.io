@@ -19,9 +19,9 @@ date: 2017-12-28 02:01:00
 <br/>
 <br/>
 ![](/asset/study/python_basic/2/1.png)
-{: .aligncenter}
+{: <>}
 [그림 1] Python 3.5 메뉴
-{: style="text-align: center;"}
+{: <>}
 <br/>
 <br/>
 파이썬 IDLE를 실행시키면 [그림 2]와 같이 파이썬 IDLE가 실행된다.
