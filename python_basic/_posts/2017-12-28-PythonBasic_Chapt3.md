@@ -1,7 +1,7 @@
 ---
 layout: post_study
-title:  PYTHON 시작전 알아둘 사항
-date: 2017-12-28 02:01:00
+title:  2. 변수(variable)와 파이썬 자료형(data type) 처리
+date: 2017-12-28 03:01:00
 ---
 ## 2. 변수(variable)와 파이썬 자료형(data type) 처리
 <br/>
@@ -28,6 +28,8 @@ date: 2017-12-28 02:01:00
 <br/>
 <br/>
 파이썬에서 사용하는 숫자(Number)형은 숫자의 형태로 이루어진 것으로 초등학교때 배운 정수, 소수 등을 가질 수 있다.
+<br/>
+<br/>
 #### 1) 정수(integer)
 <br/>
 정수는 양의 정수(1, 2, ...), 음의 정수(-1, -2, ...) 와 0을 의미한다.
@@ -57,7 +59,8 @@ date: 2017-12-28 02:01:00
 
 <br/>
 <br/>
-마지막에 표현된 ‘E’의 형태는 컴퓨터에서 사용하는 10의 지수방식을 의미한다 ‘1.2E10’은 $$$1.2 x 10 = 10^10$$$ 을, ‘1.2E-10’은 $$$ 1.2 x 10^-10$$$ 을 의미한다.
+마지막에 표현된 ‘E’의 형태는 컴퓨터에서 사용하는 10의 지수방식을 의미한다 ‘1.2E10’은 1.2 x 10 = 10^10 을, ‘1.2E-10’은 1.2 x 10^-10 을 의미한다.
+<br/>
 <br/>
 
 #### 3) 8진수(octal) 및 16진수(hexadecimal)
@@ -106,4 +109,122 @@ date: 2017-12-28 02:01:00
 ### 2.2 문자열(String)
 <br/>
 <br/>
-파이썬에서 사용하는 숫자(Number)형은 숫자의 형태로 이루어진 것으로 초등학교때 배운 정수, 소수 등을 가질 수 있다.
+파이썬에서 사용하는 문자열은 하나의 문자(character) 또는 문자열(string)을 가질 수 있다.
+<br/>
+<br/>
+#### 1) 문자열의 구성
+<br/>
+파이썬에서 문자열은 작은 따옴표(‘)의 쌍, 큰 따옴표(“)의 쌍과 큰 따옴표 또는 작은 따옴표 3개의 연속된 쌍으로 만들 수 있다.
+<br/>
+<br/>
+
+{% highlight python %}
+>>> a = ‘HELLO’
+>>> a = “HELLO”
+>>> a = ‘’’HELLO’’’
+>>> a = “””HELLO”””
+{% endhighlight %}
+
+<br/>
+<br/>
+문자열을 만드는데 여러 가지 방식을 만든 이유는 파이썬이 다양한 언어의 문자열을 지원하기 위해서 이다. 영어중에 생략된 글자나 숫자, 또는 소유격을 나타내기 위해서 사용하는 작은따옴표(어퍼스트로피: apostrophe)를 생각해 보면 쉽게 알 수 있다.
+<br/>
+<br/>
+
+{% highlight python %}
+>>> a = 'she's gone' #작은따옴표 쌍이 맞지 않는다
+SyntaxError: invalid syntax
+>>> a = "she's gone" #문자열을 큰 따옴표 쌍으로 만들어 주니 혼동이 없음
+>>> print(a)
+she's gone
+>>> a = "he said that "she is gone"” #큰따옴표의 쌍은 맞으나 문자열을 어떻게 끊어야 하는지 알 수 없음
+SyntaxError: invalid syntax
+>>> a = 'he said that "she is gone"' #작은 따옴표쌍으로 문자열을 만들고 내부에서 큰따옴표를 사용
+>>> print(a)
+he said that "she is gone"
+>>> a = 'he said that "she's gone"' #작은 따옴표의 쌍이 맞지 않음
+SyntaxError: invalid syntax
+>>> #문자열 내부에 사용하는 큰 따옴표와 작은 따옴표 앞에 \를 입력하면 인식
+>>> a = 'he said that "she\'s gone"'
+>>> print(a)
+he said that "she's gone"
+>>> a = "he said that \"she\'s gone\""
+>>> print(a)
+he said that "she's gone"
+{% endhighlight %}
+
+<br/>
+<br/>
+#### 2) 이스케이프(escape) 문자
+<br/>
+파이썬뿐만 아니라 여러 프로그래밍 언어는 이스케이프 문자를 지원한다. 이스케이프 문자란 미리 정의해놓은 문자로 특정 기능을 수행한다. 이스케이프 문자는 여러 가지가 있으나 주로 사용하는 것은 다음과 같다.
+<br/>
+<br/>
+| 이스케이프 문자 | 기능 | 예제 |
+| -------- | -------- | -------- |
+| \n |	줄 바꿈 | >>> print (“HI\nHELLO”)<br/>HI<br/>HELLO|
+| \t |	탭     | >>> print (“HI\nHELLO”)<br/>HI      HELLO|
+| \\ |	\ 문자 | >>> print (“HI\\HELLO”)<br/>HI\HELLO|
+|\’|	‘ 출력| |
+|\”|	“ 출력| |
+{: .table table-striped}
+
+<br/>
+<br/>
+#### 3) 여러줄의 문자열
+<br/>
+변수에 문자열을 입력하다 보면 여러줄의 문자열을 작성할 경우가 있다. 이러한 경우에는 한줄에 문자열을 다 입력하여도 되지만, 가독성이 떨어지게 되므로 다음과 같이 처리할 수 있다(예제를 만들고 보니 참 저렴한 영어다…).
+<br/>
+<br/>
+
+{% highlight python %}
+>>> a = "HI\nMY NAME IS MARK\nNICE TO MEET YOU"
+>>> print(a)
+HI
+MY NAME IS MARK
+NICE TO MEET YOU
+>>> a = '''
+HI
+MY NAME IS MARK
+NICE TO MEET YOU
+'''
+>>> print(a)
+
+HI
+MY NAME IS MARK
+NICE TO MEET YOU
+
+>>> a = """
+HI
+MY NAME IS MARK
+NICE TO MEET YOU
+"""
+>>> print(a)
+
+HI
+MY NAME IS MARK
+NICE TO MEET YOU
+{% endhighlight %}
+
+<br/>
+<br/>
+#### 4) 문자열 연산자(operator)
+<br/>
+문자열의 경우에는 더하기와 곱하기 연산자를 사용할 수 있다.
+<br/>
+<br/>
+
+{% highlight python %}
+>>> "HI" + "HELLO" #두개의 문자열을 붙여서 출력한다
+'HIHELLO'
+>>> "HI"*3 # 문자열을 3번 반복한다
+'HIHIHI'
+>>> "*"*10
+'**********'
+{% endhighlight %}
+
+<br/>
+<br/>
+
+
+
