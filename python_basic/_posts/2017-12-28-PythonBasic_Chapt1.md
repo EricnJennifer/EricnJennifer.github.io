@@ -71,13 +71,6 @@ categories: python_basic
 {: .borderBox}
 <br />
 
-| Priority apples | Second priority | Third priority |
-|-------|--------|---------|
-| ambrosia | gala | red delicious |
-| pink lady | jazz | macintosh |
-| honeycrisp | granny smith | fuji |
-| honeycrisp | granny smith | fuji |
-
 [그림 7]은 파이썬 기본 프로그램에 추가적으로 설치가 가능한 옵션을 선택하는 창이다. 선택할 수 있는 옵션의 각 기능은 다음과 같다.
 <br />
 
@@ -87,7 +80,7 @@ categories: python_basic
 |pip	|파이썬 추가 패키지(라이브러리)를 손쉽게 설치할 수 있도록 지원|
 |tcl/tk and IDLE|	파이썬 GUI(Graphic User Interface) 표준 라이브러리인 Tkinter의 설치 및  파이썬 통합개발환경(IDLE: Integrated DeveLopment Environment) 설치|
 |Python test suite|	파이썬 단위 모듈 테스트를 지원하는 프레임워크(Framework)|
-
+{: .mbtablestyle}
 
 필요한 기능을 선택한 후 (pip 와 IDLE는 필수적으로 선택하는 것이 정신건강에 좋다) [Next]버튼을 누르면 [그림 8]과 같이 추가 옵션을 선택하는 창이 나타난다.
 <br />
