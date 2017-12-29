@@ -223,3 +223,10 @@ footer {
 
 .borderBox {vertical-align:middle; text-align: center;  font-size: 90%;}
 .borderBox img {display: block; margin: auto;}
+.mbtablestyle {
+        border-collapse: collapse;
+
+   > table, td, th {
+        border: 1px solid black;
+        }
+}
