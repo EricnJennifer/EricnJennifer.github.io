@@ -6,7 +6,7 @@ title: Eric군 Jennifer양의 여행 이야기
     <div class="list-group">
       {% for post in site.posts %}
       {% if post.categories contains "travel" %}
-      <article class="post">
+      <article class="thumbnail">
         {% if post.img %}
             <a class="post-thumbnail" style="background-image: url({{"/asset/travel/" | prepend: site.baseurl | append : post.img}})" href="{{post.url | prepend: site.baseurl}}"></a>
         {% else %}
