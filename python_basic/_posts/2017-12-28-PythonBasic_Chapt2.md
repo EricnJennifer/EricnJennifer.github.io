@@ -27,15 +27,18 @@ date: 2017-12-28 02:01:00
 css 파이썬 IDLE를 실행시키면 [그림 2]와 같이 파이썬 IDLE가 실행된다.
 <br/>
 <br/>
-![](/asset/study/python_basic/2/2.png){.aligncenter}
+
+![](/asset/study/python_basic/2/2.png)
 [그림 2] 파이썬 IDLE 환경
+{: .borderBox}
 <br/>
 <br/>
 
 파이썬 IDLE는 크게 2가지 부분으로 구성된다. 한 부분은 쉘(Shell)이라고 부르는 파이썬이 실행되는 창과 편집기(Editor) 창으로 구성된다. 파이썬 쉘에 나타나는 ‘>>>’ 모양을 프롬프트(prompt)고 한다. 쉘 프롬프트에 [그림 3]과 같이 입력한다.
 <br/>
 <br/>
-![](/asset/study/python_basic/2/3.png){.aligncenter}
+
+![](/asset/study/python_basic/2/3.png)
 [그림 3] 문자열 출력
 {: .borderBox}
 <br/>
