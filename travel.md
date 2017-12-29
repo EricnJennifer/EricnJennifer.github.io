@@ -8,7 +8,7 @@ title: Eric군 Jennifer양의 여행 이야기
       {% if post.categories contains "travel" %}
       <div class="list-group-item">
         <div class="row-action-primary">
-          <img src="{{ post.img }}" width="100" height="100">
+          <img src="{{ post.img }}" width="300" height="300">
         </div>
         <div class="row-content">
           <div class="least-content">{{ post.date | date_to_string }}</div>
