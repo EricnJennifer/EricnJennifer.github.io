@@ -18,12 +18,12 @@ date: 2017-12-28 02:01:00
 먼저 [그림 1]처럼 파이썬 메뉴에서 IDLE를 실행한다.
 <br/>
 <br/>
+{:}
 ![](/asset/study/python_basic/2/1.png)
 [그림 1] Python 3.5 메뉴
 {: .borderBox}
 <br/>
 <br/>
-asdasdsadasdasd
 파이썬 IDLE를 실행시키면 [그림 2]와 같이 파이썬 IDLE가 실행된다.
 <br/>
 <br/>
