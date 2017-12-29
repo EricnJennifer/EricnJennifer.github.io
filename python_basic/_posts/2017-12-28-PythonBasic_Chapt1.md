@@ -86,7 +86,7 @@ categories: python_basic
 |pip	|파이썬 추가 패키지(라이브러리)를 손쉽게 설치할 수 있도록 지원|
 |tcl/tk and IDLE|	파이썬 GUI(Graphic User Interface) 표준 라이브러리인 Tkinter의 설치 및  파이썬 통합개발환경(IDLE: Integrated DeveLopment Environment) 설치|
 |Python test suite|	파이썬 단위 모듈 테스트를 지원하는 프레임워크(Framework)|
-
+{: .table table-striped}
 
 <br />
 필요한 기능을 선택한 후 (pip 와 IDLE는 필수적으로 선택하는 것이 정신건강에 좋다) [Next]버튼을 누르면 [그림 8]과 같이 추가 옵션을 선택하는 창이 나타난다.
