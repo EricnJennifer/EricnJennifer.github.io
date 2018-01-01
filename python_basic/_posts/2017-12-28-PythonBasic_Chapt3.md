@@ -893,6 +893,9 @@ a = set([10, 20, 30])
 {10, 30}
 {% endhighlight %}
 
+<br/>
+<br/>
+
 ### 2.7 참(True)/거짓(False) 자료형
 <br/>
 <br/>
@@ -909,6 +912,7 @@ a = set([10, 20, 30])
 |1	|True|
 |0	|False|
 |None|	False (파이썬에는 None 이라는 데이터 값이 존재한다. 단순하게 값이 없다고 생각하면 된다)|
+{: .table table-striped}
 
 <br/>
 <br/>
