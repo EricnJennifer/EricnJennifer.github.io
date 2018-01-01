@@ -6,7 +6,10 @@ date: 2017-12-28 03:01:00
 ## 2. 변수(variable)와 파이썬 자료형(data type) 처리
 <br/>
 <br/>
-컴퓨터로 어떠한 일을 수행하려면 데이터를 입력 받아야 한다. 이러한 데이터는 숫자나 문자, 때로는 여러 개의 데이터 조합일 수 있다. 이렇게 입력 받은 데이터는 어딘가에 저장해 놓고 필요한 경우에 읽어 오거나 수정할 수 있어야 한다. 프로그래밍에 있어서 이렇게 데이터를 저장해 놓을 수 있는 공간(메모리의 일정 구역)을 할당하고 특별한 이름을 부여하는 과정을 “변수를 할당한다”라고 한다. 우리가 물건을 인터넷에 시키면 택배기사 아저씨가 정확하게 물건을 배달하여 줄 수 있는 것은 집주소를 물건 주문 시 기록하기 때문이다. 만약 집주소가 중복된다면 어떤 집으로 물건을 배달할지 혼동이 될 것이다. 마찬가지로 변수는 프로그램 내에서 중복된 이름으로 사용할 수 없다. 또한 한번 선언한 변수에는 말 그대로 ‘변하는 값’을 계속 입력할 수 있다. [그림 1]을 살펴 보도록 하자.
+컴퓨터로 어떠한 일을 수행하려면 데이터를 입력 받아야 한다. 이러한 데이터는 숫자나 문자, 때로는 여러 개의 데이터 조합일 수 있다. 이렇게 입력 받은 데이터는 어딘가에 저장해 놓고 필요한 경우에 읽어 오거나 수정할 수 있어야 한다. 프로그래밍에 있어서 이렇게 데이터를 저장해 놓을 수 있는 공간(메모리의 일정 구역)을 할당하고 특별한 이름을 부여하는 과정을 “변수를 할당한다”라고 한다.
+<br/>
+<br/>
+우리가 물건을 인터넷에 시키면 택배기사 아저씨가 정확하게 물건을 배달하여 줄 수 있는 것은 집주소를 물건 주문 시 기록하기 때문이다. 만약 집주소가 중복된다면 어떤 집으로 물건을 배달할지 혼동이 될 것이다. 마찬가지로 변수는 프로그램 내에서 중복된 이름으로 사용할 수 없다. 또한 한번 선언한 변수에는 말 그대로 ‘변하는 값’을 계속 입력할 수 있다. [그림 1]을 살펴 보도록 하자.
 <br/>
 <br/>
 
@@ -543,5 +546,372 @@ append() 함수는 리스트의 맨 마지막에 데이터를 추가할 수 있�
 [10, 25, 30, 40]
 {% endhighlight %}
 
+<br/>
+<br/>
+특정 인덱스의 값을 대입연산자(=)를 이용하여 변경할 수 있다.
+<br/>
+<br/>
+##### c. 개수: count()
+
+{% highlight python %}
+>>> a = ['A+', 'A0', 'A+', 'F']
+>>> a.count('A+')
+2
+>>> a.count('F')
+1
+>>> a.count('B+')
+0
+{% endhighlight %}
+
+<br/>
+<br/>
+##### d. 정렬: sort()
+
+{% highlight python %}
+>>> a = ['A+', 'A0', 'A+', 'F']
+>>> a.sort()
+>>> a
+['A+', 'A+', 'A0', 'F']
+{% endhighlight %}
+
+<br/>
+<br/>
+##### e. 뒤집기: reverse()
+
+{% highlight python %}
+>>> a = [30, 20, 40, 15]
+>>> a.reverse()
+>>> a
+[15, 40, 20, 30]
+{% endhighlight %}
+
+<br/>
+<br/>
+reverse() 함수는 단순하게 리스트의 인덱스를 역순으로 만들어주는 역할을 하며, 내부적으로 정렬을 수행하지는 않는다.
+<br/>
+<br/>
+##### f. 삭제 및 생성: clear(), list()
+
+{% highlight python %}
+>>> a = ['A+', 'A0', 'A+', 'F']
+>>> a.clear()
+[]
+>>> type(a)
+<class 'list'>
+>>> b = list()
+>>> type(b)
+<class 'list'>
+{% endhighlight %}
+
+<br/>
+<br/>
+type() 함수는 변수의 자료형을 반환하는 함수이다. 초기에 빈 리스트를 생성하기 위해서는 list() 함수를 사용할 수 있다.
+<br/>
+<br/>
+
+#### 2) 리스트 연산자(operator)
+<br/>
+리스트 연산자는 문자열과 같이 ‘+’와 ‘*’ 연산자를 사용할 수 있다.
+<br/>
+<br/>
+
+{% highlight python %}
+>>> a = [10, 20, 30]
+>>> b = [40, 50]
+>>> a+b
+[10, 20, 30, 40, 50]
+>>> a*2
+[10, 20, 30, 10, 20, 30]
+{% endhighlight %}
+
+<br/>
+<br/>
+
+### 2.4 튜플(tuple) 자료형
+<br/>
+<br/>
+튜플형은 리스트와 비슷하지만 내부에 있는 데이터를 삭제하거나 추가할 수 없는 상수와 같은 개념으로 사용한다.
+<br/>
+<br/>
+
+{% highlight python %}
+>>> a = (10, 20, 30)
+>>> a
+(10, 20, 30)
+>>> a.append(40)
+Traceback (most recent call last):
+  File "<pyshell#130>", line 1, in <module>
+    a.append(40)
+AttributeError: 'tuple' object has no attribute 'append'
+>>> a[1] = 25
+Traceback (most recent call last):
+  File "<pyshell#141>", line 1, in <module>
+    a[1] = 25
+TypeError: 'tuple' object does not support item assignment
+>>> del a(1)
+SyntaxError: can't delete function call
+>>> a[1]
+20
+>>> a[1:]
+(20, 30)
+{% endhighlight %}
+
+<br/>
+<br/>
+
+### 2.5 딕셔너리(Dictionary) 자료형
+<br/>
+<br/>
+리스트나 튜플의 경우에는 데이터의 값을 가지고 오기 위하여 인덱스(index)를 이용하였다. 그러나 이러한 경우에는 인덱스 번호에 어떤 데이터를 저장하였는지 정확하게 알 수 있어야 하며, 프로그램에서 데이터의 가독성이 떨어지는 문제점을 가진다.
+<br/>
+<br/>
+이러한 부분을 해결하기 위하여 도입된 딕셔너리(사전) 자료형은 키(key)와 값(value)의 쌍을 가진다.
+<br/>
+<br/>
+
+{% highlight python %}
+>>> score = {'korean':100, 'english':90, 'math':95}
+>>> score
+{'math': 95, 'korean': 100, 'english': 90}
+>>> score['english']
+90
+>>> score['english'] = 95
+>>> score
+{'math': 95, 'korean': 100, 'english': 95}
+>>> score['science'] = 90
+>>> score
+{'math': 95, 'korean': 100, 'science': 90, 'english': 95}
+>>> del score['math']
+>>> score
+{'korean': 100, 'science': 90, 'english': 95}
+>>> del score['music']
+Traceback (most recent call last):
+  File "<pyshell#159>", line 1, in <module>
+    del score['music']
+KeyError: ‘music'
+{% endhighlight %}
+
+<br/>
+<br/>
+딕셔너리형은 인덱스 대신 위의 예와 같이 키값을 이용하여 데이터값을 조회할 수 있는 장점을 가진다. 리스트에서는 입력한 순서대로 데이터가 유지되나 딕셔너리형에서는 파이썬에서 자체적으로 순서를 정렬하는 차이점을 가지고 있다. 주의할점은 키값은 고유값으로 중복될 수 없는 값이다. 만약 키값이 중복된다면 파이썬에서는 어떤 데이터를 반환할지 결정할 수 없기 때문이다.
+<br/>
+<br/>
+딕셔너리의 키값이 존재하는 경우에는 해당 키값의 데이터를 변경하게 되고, 키값이 없는 경우에는 새로운 쌍을 추가한다. 딕셔너리의 키값을 지정하여 데이터를 삭제할 수 있으며, 키값이 존재하지 않는 경우에는 삭제시에 오류를 발생한다.
+<br/>
+<br/>
+
+#### 1) 딕셔너리 함수(fuction)
+<br/>
+딕셔너리를 처리하기 위한 함수는 다음과 같다.
+
+<br/>
+<br/>
+##### a. Key 객체 반환: keys()
+
+{% highlight python %}
+>>> score = {'korean':100, 'english':90, 'math':95}
+>>> score.keys()
+dict_keys(['math', 'korean', 'english'])
+>> list(score.keys())
+['math', 'korean', 'english']
+{% endhighlight %}
+
+<br/>
+<br/>
+keys() 함수는 딕셔너리의 키값들의 객체(object)를 반환한다. 파이썬 2.X 버전에서는 리스트를 반환하였으나 메모리 낭비를 없애기 위하여 객체형으로 반환을 하는 것으로 변경되었다. 리스트형으로 반환한다. append()등의 함수를 사용하기 위해서는 list() 함수를 이용하여 데이터를 변환할 수 있다.
+<br/>
+<br/>
+##### b. Value 객체 반환: values()
+
+{% highlight python %}
+>>> score = {'korean':100, 'english':90, 'math':95}
+>>> score.values()
+dict_values([95, 100, 90])
+>>> list(score.values())
+[95, 100, 90]
+{% endhighlight %}
+
+<br/>
+<br/>
+##### c. Key, Value 쌍 객체 반환: items()
+
+{% highlight python %}
+>>> score = {'korean':100, 'english':90, 'math':95}
+>>> score.items()
+dict_items([('math', 95), ('korean', 100), ('english', 90)])
+>>> list(score.items())
+[('math', 95), ('korean', 100), ('english', 90)]
+{% endhighlight %}
+
+<br/>
+<br/>
+##### d. 삭제: clear()
+
+{% highlight python %}
+>>> score = {'korean':100, 'english':90, 'math':95}
+>>> score.clear()
+>>> score
+{}
+{% endhighlight %}
+
+<br/>
+<br/>
+##### e. 데이터 가져오기: get()
+
+{% highlight python %}
+>>> score = {'korean':100, 'english':90, 'math':95}
+>>> score.get('korean')
+100
+>>> score['korean']
+100
+>>> score.get('science')
+>>>
+>>> score.get('science', 'NONE')
+'NONE'
+{% endhighlight %}
+
+<br/>
+<br/>
+get() 함수는 score[‘key값’]과 동일한 기능을 한다. score[‘key값’]의 경우에는 키가 없을 경우 오류가 발생하지만 get()함수는 아무런 값도 반환하지 않는다. 또한 키값이 없는 경우에는 특정한 값을 반환하도록 인자를 추가할 수 있다.
+<br/>
+<br/>
+##### f. 키값 유무 확인: in
+
+{% highlight python %}
+>>> score = {'korean':100, 'english':90, 'math':95}
+>>> 'korean' in score
+True
+>>> 'science' in score
+False
+{% endhighlight %}
+
+<br/>
+<br/>
+앞서서 키값이 없는 값을 조회하는 경우에는 오류를 발생한는 것을 확인하였다. 이러한 것을 막기 위하여 딕셔너리 내부에 키값이 존재하는지 확인하기 위해 ‘in’을 사용한다. ‘True’는 ‘참’을 의미하며, ‘False’는 거짓을 의미한다.
+<br/>
+<br/>
+
+### 2.6 집합(set) 자료형
+<br/>
+<br/>
+집합 자료형은 기존의 프로그래밍언어에서는 보기 힘들었던 자료형으로 데이터를 집합으로 취급하여 집합연산(교집합, 합집합 등)을 할 수 있는 장점이 있다. 집합 자료형은 순서가 없이 존재하기 때문에 리스트나 튜플의 인덱스를 이용하여 데이터를 조회하거나 딕셔너리의 키값을 이용하는 방법이 불가능하기 때문에 리스트나 튜플로 변경하여 사용하여야 한다.
+<br/>
+<br/>
+
+{% highlight python %}
+>>> a = set([10, 20, 30])
+>>> a
+{10, 20, 30}
+>>> b = set("PYTHON")
+>>> b
+{'P', 'T', 'O', 'H', 'Y', 'N'}
+{% endhighlight %}
+
+<br/>
+<br/>
+집합 자료형은 리스트 또는 문자열을 데이터로 입력받아 키값이 없는 딕셔너리 형태의 데이터를 반환한다. 또한 집합 자료형은 순서가 없이 존재하기 때문에 리스트나 튜플의 인덱스를 이용하여 데이터를 조회하거나 딕셔너리의 키값을 이용하는 방법이 불가능하기 때문에 리스트나 튜플로 변경하여 사용하여야 한다.
+<br/>
+<br/>
+
+#### 1) 집합 연산
+<br/>
+집합 자료형은 수학시간에 배운 교집합, 합집합, 차집합 연산을 할 수 있다.
+<br/>
+<br/>
+##### a. 교집합(intersection)
+
+{% highlight python %}
+>>> a = set([10, 20, 30])
+>>> b = set([30, 40, 50])
+>>> a & b
+{30}
+>>> a.intersection(b)
+{30}
+{% endhighlight %}
+
+<br/>
+<br/>
+##### b. 합집합(union)
+
+{% highlight python %}
+>>> a = set([10, 20, 30])
+>>> b = set([30, 40, 50])
+>>> a | b
+{50, 20, 40, 10, 30}
+>>> a.union(b)
+{50, 20, 40, 10, 30}
+{% endhighlight %}
+
+<br/>
+<br/>
+합집합은 중복된 값은 하나만 반환한다.
+<br/>
+<br/>
+##### c. 차집합(difference)
+
+{% highlight python %}
+>>> a = set([10, 20, 30])
+>>> b = set([30, 40, 50])
+>>> a - b
+{10, 20}
+>>> a.difference(b)
+{10, 20}
+{% endhighlight %}
+
+<br/>
+<br/>
+
+#### 2) 집합 함수(function)
+<br/>
+집합 자료형은 데이터를 조작하기 위하여 다양한 함수를 제공한다.
+<br/>
+<br/>
+##### a. 값 추가하기: add(), update()
+
+{% highlight python %}
+a = set([10, 20, 30])
+>>> a
+{10, 20, 30}
+>>> a.add(40)
+>>> a
+{40, 10, 20, 30}
+>>> a.update([50, 60, 70])
+>>> a
+{70, 40, 10, 50, 20, 60, 30}
+{% endhighlight %}
+
+<br/>
+<br/>
+##### b. 값 삭제: remove()
+
+{% highlight python %}
+>>> a = set([10, 20, 30])
+>>> a
+{10, 20, 30}
+>>> a.remove(20)
+>>> a
+{10, 30}
+{% endhighlight %}
+
+### 2.7 참(True)/거짓(False) 자료형
+<br/>
+<br/>
+참과 거짓은 특정 변수에 값이 비어 있거나 조건 비교를 하기 위하여 사용한다.
+<br/>
+<br/>
+
+|  값 | True or False |
+|--------|--------|
+|“abc”|	True|
+|“”	|False|
+|[10, 20, 30]|	True|
+|[]	|False|
+|1	|True|
+|0	|False|
+|None|	False (파이썬에는 None 이라는 데이터 값이 존재한다. 단순하게 값이 없다고 생각하면 된다)|
+
+<br/>
+<br/>
+활용 방법은 다음장의 흐름제어 부분에서 설명하도록 한다.
 <br/>
 <br/>
