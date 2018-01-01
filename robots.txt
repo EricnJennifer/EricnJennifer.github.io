@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: http://ericnjennifer.github.io/sitemap.xml
