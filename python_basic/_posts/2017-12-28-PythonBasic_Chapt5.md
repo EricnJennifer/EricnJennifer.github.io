@@ -356,6 +356,7 @@ f.close()
 ![](/asset/study/python_basic/2/18.png)
     [그림 3] 파일 열기 – 추가 모드
 {: .borderBox}
+
 <br/>
 <br/>
 #### 5) with 문과 함께 사용
