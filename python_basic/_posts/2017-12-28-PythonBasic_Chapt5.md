@@ -1,6 +1,6 @@
 ---
 layout: post_study
-title:  4. 입력과 출력
+title:  4. 입력과 출력 (Input/Output)
 date: 2017-12-28 05:01:00
 ---
 ## 4. 입력과 출력
