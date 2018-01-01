@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Eric군 Jennifer양의 여행 이야기
+title: E&J 살아가는 
 ---
 <div class="well">
     <div class="list-group">
