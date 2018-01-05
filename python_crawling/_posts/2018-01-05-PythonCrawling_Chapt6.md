@@ -217,8 +217,30 @@ https://graph.facebook.com/v2.8/[page_name]/?access+token=[App_ID]|[App_Secret_C
 <br/><br/>
 기본적으로 페이스북을 통하여 해당 Numeric ID를 얻어가지고 오는 방법은 그래프 API URL 뒤에 질의하고자 하는 페이지 id와 억세스 토큰(access token)을 쿼리 파라미터(query partameters)로 전달하면 JSON 형태의 데이터로 응답 받게 된다.
 
+{% highlight python %}
+# [CODE 3]
+    req = urllib.request.Request(url)
+{: .borderBox}
 
+<br/><br/>
+“urllib.request” 모듈은 URL을 이용하여 고수준(high level)의 HTTP 클라이언트 인터페이스를 위한함수(function)와 클래스(class)제공하며 “Request” 클래스는 URL 요청을 하기 위한 방법을 제공한다. “Urllib.request.Request()” 생성자는 다음과 같은 방식으로 설정한다.
+<br/><br/>
 
+```
+urllib.request.Request(url, data=None, headers={}, origin_req_host=None, unverifiable=False, method=None)
+```
+<br/><br/>
+| 인자 | 설명 |
+|--------|--------|
+| url | 접근할 페이지 URL |
+| data| 서버로 전송할 부가적인 데이터를 지정한다. 전송할 데이터는 바이트열(bytes)이나, 전송할 파일, POST 데이터 등이 될 수 있으며 Header에서 지정하는 Content-Length와 Transfer-Encoding 속성에 의하여 전송할 데이터 양을 지정한다. POST 데이터의 경우에는 urllib.parse.urlencode() 함수를 이용하여 데이터 값을 인코딩한 후 전송하여야 한다 |
+| headers| 헤더는 딕셔너리(dictionary) 형식을 가지며, add_header() 함수를 이용하여 키(key)값과 그에 해당하는 값(value)의 쌍을 가진다. 예를 들어 POST 형식의 데이터를 전송하게 되는 경우에는 Content-Type: application/x-www-form-relencoded가 지정되어야 한다(실제 이 값은 기본값이다) |
+| origin_req_host | RFC 2965 기반의 요청한 호스트의 호스트 명 또는 IP 어드레스를 지정한다. 기본값은 http.cookies.requst_host(self) 값이다 |
+| unverifiable | 해당 요청에 대하여 재 확인(검증)이 요청되는 경우에 지정한다. 기본값은 ”False”이다. 쿠키의 값 인증 등을 위해 사용한다 |
+| method | HTTP 요청의 방식을 지정한다. 기본값은 ‘GET’ 방식이다 |
+{: .table table-striped}
+
+<br/><br/>
 
 
 
