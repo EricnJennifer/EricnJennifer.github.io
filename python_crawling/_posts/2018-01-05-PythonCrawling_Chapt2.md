@@ -78,7 +78,7 @@ categories: python_crawling
 <br/><br/>
 <br/><br/>
 
-### 1. Facebook API 사용등록
+### 1.2 Facebook API 사용등록
 <br/><br/>
 
 ![](/asset/study/python_crawling/2/6.jpg)
