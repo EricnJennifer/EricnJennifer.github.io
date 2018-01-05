@@ -4,14 +4,21 @@
 		"image": "python.png",
 		"url": "/python_basic",
 		"date": "Aug 2017",
-		"tags": ["PYTHON"]
+		"tags": ["PYTHON", "BASIC"]
+	},
+	{
+		"name": "PYTHON 크롤링",
+		"image": "python_book.png",
+		"url": "/python_crawling",
+		"date": "Aug 2017",
+		"tags": ["PYTHON", "CRAWLING"]
 	},
 	{
 		"name": "PYTHON 시각화",
 		"image": "python_book.png",
 		"url": "/python_visualization",
 		"date": "Aug 2017",
-		"tags": ["PYTHON"]
+		"tags": ["PYTHON", "VISUALIZATION"]
 	},
 	{
 		"name": "아빠와 함께하는 C",
