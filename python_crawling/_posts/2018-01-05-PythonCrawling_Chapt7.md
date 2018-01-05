@@ -13,12 +13,11 @@ categories: python_crawling
  필드(Field) | 페이지 정보, 해당 페이지 프로필(Profile)등 항목에 대한 정보
 
 
-``` python
+{% highlight python %}
 import sys
 import urllib.request
 import json
 
-if \_\_name\_\_ == '\_\_main\_\_':
 
     # [CODE 1]
     page_name = "jtbcnews"
@@ -47,7 +46,7 @@ if \_\_name\_\_ == '\_\_main\_\_':
             print ("%s Facebook Numeric ID : %s" % (page_name, page_id))
     except Exception as e:
         print (e)
-```
+{% endhighlight %}
 
 
 
