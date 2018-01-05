@@ -7,7 +7,7 @@ categories: python_crawling
 ## 5. Facebook 데이터 수집
 <br/><br/>
 
-우리는 [1. Facebook API 사용등록](http://https://ericnjennifer.github.io/python_crawling/2018/01/05/PythonCrawling_Chapt2.html)에서 페이스북 App을 설정하였다. 이제 해당 앱 ID와 비밀키를 가지고 파이썬을 이용하여 데이터를 가지고 오는 방법에 대하여 설명하고자 한다.
+우리는 [1. Facebook API 사용등록](https://ericnjennifer.github.io/python_crawling/2018/01/05/PythonCrawling_Chapt2.html)에서 페이스북 App을 설정하였다. 이제 해당 앱 ID와 비밀키를 가지고 파이썬을 이용하여 데이터를 가지고 오는 방법에 대하여 설명하고자 한다.
 <br/><br/>
 일반적으로 근래 서비스되는 모든 웹 서비스는 OAuth라는 인증 방식을 통하여 사용자 계정에 대한 접근을 하게 된다. 그러나 페이스북은 OAuth2 방식을 채용하면서 기본적으로 ‘https’ 프로토콜을 적용하고 편리한 방식의 그래프 API를 이용해 페이스북에 접근하는 방식을 제공한다. 그래프 API는 “소셜 그래프”라는 명칭에서 유래된 것으로 다음 항목을 가지고 있다.
 <br/><br/>
