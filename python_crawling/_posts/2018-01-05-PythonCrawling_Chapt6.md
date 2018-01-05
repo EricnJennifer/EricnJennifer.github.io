@@ -137,13 +137,12 @@ Host: graph.facebook.com
 <br/><br/>
 그러나 아쉽게도 페이스북 API는 고유 이름을 이용하여 접근할 수 있는 방법을 제공하지 않는다. 페이지의 접근을 위해서 페이스북에서는 고유의 숫자형식 ID(Numeric ID)를 사용하게 되므로 이를 위해 그래프 API를 이용하여 해당 페이지의 숫자 형식 ID를 가지고 와야 한다. 아래와 같이 [코드 1]을 작성한다
 <br/><br/>
-
-{% highlight python %}
+```python
 import sys
 import urllib.request
 import json
 
-if \_\_name\_\_ == '\_\_main\_\_':
+if __name__ == '__main__':
 
     # [CODE 1]
     page_name = "jtbcnews"
@@ -172,7 +171,7 @@ if \_\_name\_\_ == '\_\_main\_\_':
             print ("%s Facebook Numeric ID : %s" % (page_name, page_id))
     except Exception as e:
         print (e)
-{% endhighlight %}
+```
 
 <br/><br/>
 해당 코드를 수행하면 [그림 2]와 같이 Numeric ID를 수신한 것을 확인할 수 있다.
