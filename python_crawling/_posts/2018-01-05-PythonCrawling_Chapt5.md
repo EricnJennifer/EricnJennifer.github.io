@@ -28,7 +28,7 @@ categories: python_crawling
 <br/><br/>
 
 ![](/asset/study/python_crawling/2/32.jpg)
-[그림 1] 회원 가입 페이지
+[그림 2] 회원 가입 페이지
 {: .borderBox}
 <br/><br/>
 
