@@ -31,7 +31,7 @@ categories: python_crawling
 {: .borderBox}
 <br/><br/>
 
-전 세계적으로 많이 사용하고 있는 SNS 프로그램은 약 5개 정도로 [그림 1]과 같이 사용자 분포를 가지고 있다. 데이터를 수집하려고 하는 지역에 따라 어떤 프로그램이 사용되고 있는지 참고하기 바란다.
+전 세계적으로 많이 사용하고 있는 SNS 프로그램은 약 5개 정도로 [그림 2]와 같이 사용자 분포를 가지고 있다. 데이터를 수집하려고 하는 지역에 따라 어떤 프로그램이 사용되고 있는지 참고하기 바란다.
 <br/><br/>
 
 ### 1.2 Socail Data Flow
@@ -81,6 +81,7 @@ SNS를 통하여 수집되는 데이터는 [그림 3]과 같은 속성을 가진
 | 모두 허용 | User-agent:*<br/>Allow: / |
 | 모두 차단 | User-agent:*<br/>Disallow: / |
 | 다른 예 | User-agent: googlebot   #googlebot 크롤러만 적용<br/>Disallow: /bbs/ #/bbs 디렉터리 접근 차단|
+[표 1] robots.txt 활용의 예
 {: .table table-striped}
 
 <br/><br/>
