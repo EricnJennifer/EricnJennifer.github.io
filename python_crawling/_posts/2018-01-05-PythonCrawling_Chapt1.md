@@ -85,7 +85,19 @@ SNS를 통하여 수집되는 데이터는 [그림 3]과 같은 속성을 가진
 
 <br/><br/>
 실 예로 <a href="http://www.naver.com/robots.txt">http://www.naver.com/robots.txt</a> 에 웹 브리우저를 이용하여 접근해 보면 네이버의 크롤러 접근 규칙에 대해 확인이 가능하다.
+<br/><br/>
 
+### 1.5 SNS API(Application Programming Interface)
+<br/><br/>
+
+![](/asset/study/python_crawling/1/5.jpg)
+[그림 5] SNS API
+{: .borderBox}
+<br/><br/>
+
+인터넷 환경이 급속하게 발전하면서 이제는 개인이 데이터를 만들어 내고 이를 공유하는 것이 보편화된 세상에 살고 있다. 이러한 기술의 발전중에 SaaS(Software as a Service)라는 용어가 있다. SaaS는 소프트웨어 및 관련 데이터가 중앙에 위치하고 사용자는 웹 브라우저등을 이용하여 접속하여 소프트웨어를 사용하는 서비스 모델을 이야기한다.
+<br/><br/>
+페이스북이나 트위터는 자신들이 서비스하는 여러 가지 기능을 SaaS의 개념으로 다른 사용자들이 활용할 수 있는 API(Application Programming Interface)를 제공해 준다. 우리는 이러한 API를 이용하여 SNS의 내용을 읽어 오거나, 다양한 형태의 데이터를 제공받을 수 있다. 과거에는 웹 페이지 또는 서비스의 내용을 가지고 오기 위하여 크롤러(Crawler)라는 것을 만들고 URL에 접근하여 데이터를 가지고 왔어야 하는데 이러한 수고를 덜어주고 간단하게 데이터를 가지고 올 수 있는 서비스를 제공한다.
 
 
 
