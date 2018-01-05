@@ -74,14 +74,13 @@ SNS를 통하여 수집되는 데이터는 [그림 3]과 같은 속성을 가진
 
 등으로 둘 수 있다.
 <br/><br/>
-이러한 무분별한 인터넷 데이터의 사용을 금지하기 위하여 웹 규약에서는 해당 사이트의 크롤링 범위를 정의하는 "robots.txt" 파일을 서비스 웹 서비스의 root에 저장하도록 되어 있다(안타깝게도 많은 웹 개발자나 웹 디자이너가 robots.txt 파일이라는 것이 존재하는 지 모르고 있는것이 현실이다 -.-;;). [표 1]은 robots.txt의 사용예를 나타낸다.
+이러한 무분별한 인터넷 데이터의 사용을 금지하기 위하여 웹 규약에서는 해당 사이트의 크롤링 범위를 정의하는 "robots.txt" 파일을 서비스 웹 서비스의 root에 저장하도록 되어 있다(안타깝게도 많은 웹 개발자나 웹 디자이너가 robots.txt 파일이라는 것이 존재하는 지 모르고 있는것이 현실이다 -.-;;). 다음의 표는 robots.txt의 사용예를 나타낸다.
 
 | Site | Status |
 |--------|--------|
 | 모두 허용 | User-agent:*<br/>Allow: / |
 | 모두 차단 | User-agent:*<br/>Disallow: / |
 | 다른 예 | User-agent: googlebot   #googlebot 크롤러만 적용<br/>Disallow: /bbs/ #/bbs 디렉터리 접근 차단|
-[표 1] robots.txt 활용의 예
 {: .table table-striped}
 
 <br/><br/>
