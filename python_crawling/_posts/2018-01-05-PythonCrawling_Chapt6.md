@@ -632,7 +632,7 @@ if __name__ == '__main__':
 [그림 4]는 코드를 수행하여 저장된 결과 값을 JSON 분석기를 이용하여 정상적으로 저장되었는지 확인한 모습이다.
 <br/><br/>
 
-![](/asset/study/python_crawling/3/4.jpg)
+![](/asset/study/python_crawling/3/4.JPG)
 [그림 4] 저장된 JSON 파일
 {: .borderBox}
 
