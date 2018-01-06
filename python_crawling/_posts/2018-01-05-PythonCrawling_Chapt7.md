@@ -18,7 +18,7 @@ import sys
 import urllib.request
 import json
 
-
+if \_\_name\_\_ == '\_\_main\_\_':
     # [CODE 1]
     page_name = "jtbcnews"
     app_id = "[App ID]"
