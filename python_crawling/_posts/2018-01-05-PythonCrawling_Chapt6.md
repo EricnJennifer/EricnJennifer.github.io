@@ -167,7 +167,7 @@ if __name__ == '__main__':
 해당 코드를 수행하면 [그림 2]와 같이 Numeric ID를 수신한 것을 확인할 수 있다.
 <br/><br/>
 
-![](/asset/study/python_crawling/3/2.	jpg)
+![](/asset/study/python_crawling/3/2.jpg)
 [그림 2] Numeric ID 획득 결과
 {: .borderBox}
 
@@ -278,6 +278,7 @@ urllib.request.Request()를 이용하여 생성한 req 객체를 urllib.request.
 
 포스트를 통하여 요청하는 주요 데이터는 다음과 같다.
 <br/><br/>
+
 | 필드명 | 설명 | 반환 형식 |
 |--------|--------|--------|
 | id | 포스트 ID | String |
@@ -294,7 +295,7 @@ urllib.request.Request()를 이용하여 생성한 req 객체를 urllib.request.
 | reactions | 좋아요, 화나요 등에 대한 리엑션 정보 | Obejct |
 | shares | 포스트를 공유한 숫자 | Object |
 | type | 포스트의 객체 형식 | enum{link, status, photo, video, offer} |
-| updated_time | 포스트가 최종 업데이트된 시간 | Datetime|
+| updated_time | 포스트가 최종 업데이트된 시간 | Datetime |
 {: .table table-striped}
 
 <br/>
@@ -344,10 +345,89 @@ if __name__ == '__main__':
 {% endhighlight %}
 
 <br/>
+코드를 수행하면 해당 다음과 같이 JSON 형태의 페이스북 포스트가 수신된다.
 
+```
+{
+    "data":[
+        {
+            "comments":{
+                "data":[
+                ],
+                "summary":{
+                    "order":"ranked",
+                    "total_count":12,
+                    "can_comment":"False"
+                }
+            },
+            "message":"즉 청와대가 최 씨의 국정개입 사건을 파 악하고도 \n은폐했다는 사실이 안 전 수석 입에서 나온 겁니다.",
+            "type":"link",
+            "shares":{
+                "count":46
+            },
+            "reactions":{
+                "data":[
+                ],
+                "summary":{
+                    "viewer_reaction":"NONE",
+                    "total_count":443
+                }
+            },
+            "created_time":"2017-02-23T00:00:00+0000",
+            "name":"안종범 \"재단 임원 인사에 최순실 개입, 알고도 숨겼다\"",
+            "id":"240263402699918 _1328805163845731",
+            "link":"http://news.jtbc.joins.com/article/article.aspx?new s_id=NB11427906&pDate=20170222"
+        }
+    ],
+    "paging":{
+        "next":"https://graph.facebook.co m/v2.8/240263402699918/posts?fields=...",
+        "previous":"https://graph.facebook.com/v2.8/240263402699918/posts?fields=..."
+    }
+}
+```
 
+<br/>
+수신된 JSON 형식의 포스트의 실제 페이스북 화면은 [그림 3]과 같다.
+<br/><br/>
 
+![](/asset/study/python_crawling/3/3.jpg)
+[그림 3] JTBCNEWS(ID = 240263402699918) 포스트
+{: .borderBox}
 
+<br/>
+코드에 대해 자세히 살펴보면 다음과 같다.
 
+{% highlight python %}
+# [CODE 1] 기본 인자의 설정
+    from_date = "2017-01-01"
+    to_date = "2017-01-31"
+    num_statuses = "10"
+    access_token = app_id + "|" + app_secret
+
+{% endhighlight %}
+
+<br/>
+먼저 접근할 포스트의 기간 설정을 위하여 검색의 시작일과 종료일, 그리고 1회 조회 시 가져올 포스트의 개수를 지정한다. 정확하게 페이스북에서는 최대 한 페이지의 포스트 개수에 대하여 정의한 문서는 찾지 못하였지만 동시에 가지고 올 포스트의 개수가 커지면 서버 응답시간이 길어지게 되고, 성능 저하의 원인이 될 수 있으므로 적당한 수로 조정하는 것이 좋다.
+
+{% highlight python %}
+# [CODE 2] 쿼리 파라미터의 작성
+    base = "https://graph.facebook.com/v2.8"
+    node = "/%s/posts" % page_id
+    fields = "/?fields=id,message,link,name,type,shares,reactions," + \
+             "created_time,comments.limit(0).summary(true)" + \
+             ".limit(0).summary(true)"
+    duration = "&since=%s&until=%s" % (from_date, to_date)
+    parameters = "&limit=%s&access_token=%s" % (num_statuses, access_token)
+    url = base + node + fields + duration + parameters
+{% endhighlight %}
+
+<br/>
+기본적으로 가지고 올 노드는 “jtbcnews’의 페이지 아이디로 지정한다(페이지 아이디를 얻는 방법은 5.2절에서 설명하였다). 가지고올 필드는 message, link, created_time, type, name, id, comments, shares, reaction으로 지정하고 검색 기간은 기본 인자 설정에서지정한 기간으로 설정한다.
+<br/><br/>
+comments와 reaction은 summary값을 요청하는 경우 FQL(Facebook Query Language)을 이용하는 방법을 공식문서에서 확인할 수 있는데 직접 쿼리 파라미터로 접근할 수 있는 방법을 스택오버플로우(Stack Overflow : http://stackoverflow.com/questions/17755753/how-to-get-likes-count-when-searching-facebook-graph-api-with-search-xxx)에서 답변으로 확인할 수 있다.
+<br/><br/>
+검색 기간은 기본적으로 페이스북에서는 유닉스 타임스탬프 또는 일반적인 “YYYY-MM-DD” 형식을 지원한다.
+<br/><br/>
+우리는 기본적인 코드를 이용하여 원하는 페이지로부터 POST를 가지고 오는 방법에 대하여 알아보았다. 이제 이를 더 확장하여 좋아요 등의 개수와 댓글의 개수를 확인하는 방법에 대하여 알아보고, 이를 JSON 형식으로 저장하고, 나중에 활용할 수 있도록 하자.
 
 
