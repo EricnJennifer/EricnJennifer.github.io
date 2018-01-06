@@ -219,7 +219,7 @@ https://graph.facebook.com/v2.8/[page_name]/?access+token=[App_ID]|[App_Secret_C
 {% highlight python %}
 # [CODE 3]
     req = urllib.request.Request(url)
-{: .borderBox}
+{% endhighlight %}
 
 <br/><br/>
 “urllib.request” 모듈은 URL을 이용하여 고수준(high level)의 HTTP 클라이언트 인터페이스를 위한함수(function)와 클래스(class)제공하며 “Request” 클래스는 URL 요청을 하기 위한 방법을 제공한다. “Urllib.request.Request()” 생성자는 다음과 같은 방식으로 설정한다.
