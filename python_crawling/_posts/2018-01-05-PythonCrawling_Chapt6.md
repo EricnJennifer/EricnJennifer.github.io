@@ -403,7 +403,6 @@ if __name__ == '__main__':
     to_date = "2017-01-31"
     num_statuses = "10"
     access_token = app_id + "|" + app_secret
-
 {% endhighlight %}
 
 <br/>
@@ -627,9 +626,248 @@ def main():
 
 if __name__ == '__main__':
     main()
+{% endhighlight %}
+
+<br/>
+[그림 4]는 코드를 수행하여 저장된 결과 값을 JSON 분석기를 이용하여 정상적으로 저장되었는지 확인한 모습이다.
+<br/><br/>
+
+![](/asset/study/python_crawling/3/4.jpg)
+[그림 4] 저장된 JSON 파일
+{: .borderBox}
+
+<br/>
+이제 특정 포스트를 페이징 기법을 이용하여 선택한 기간 동안의 데이터를 가져오는 방법에 대하여 자세히 알아보도록 하겠다.
+
+{% highlight python %}
+#[CODE 1] 특정 URL의 데이터를 얻어오기: get_request_url(url)
+def get_request_url(url):
+
+    req = urllib.request.Request(url)
+
+    try:
+        response = urllib.request.urlopen(req)
+        if response.getcode() == 200:
+            print ("[%s] Url Request Success" % datetime.datetime.now())
+            return response.read().decode('utf-8')
+    except Exception as e:
+        print(e)
+        print("[%s] Error for URL : %s" % (datetime.datetime.now(), url))
+        return None
+{% endhighlight %}
+
+<br/>
+앞에서 작성했던 코드는 단순하게 main()으로만 구성되는 간단한 프로그램이었으나, 이번 절에서는 함수를 이용하여 코드를 좀더 명료하게 정리하였다. [코드 11]은 urllib.request를 이용하여 요청받은 데이터를 수신한다. 정상적으로 데이터를 수신한 경우 수신한 데이터를 ‘utf-8’ 형식으로 디코딩하여 반환하고 그렇지 않은 경우에는 ‘None’을 반환한다.
+
+{% highlight python %}
+#[CODE 2] 페이스북 Page ID를 얻어오기
+def getFacebookNumericID(page_id, access_token):
+
+    base = "https://graph.facebook.com/v2.8"
+    node = "/" + page_id
+    parameters = "/?access_token=%s" % access_token
+    url = base + node + parameters
+
+    retData = get_request_url(url)
+
+    if (retData == None):
+        return None
+    else:
+        jsonData = json.loads(retData)
+        return jsonData['id']
+        return None
+{% endhighlight %}
+
+<br/>
+[CODE 2]는 5.2절에서 설명한 페이스북의 ‘page id’를 얻어오는 함수를 구성하였다. 정상적으로 데이터를 수신한 경우 ‘id’ 값을 반환하고 그렇지 않은 경우에는 ‘None’을 반환한다.
+
+{% highlight python %}
+#[CODE 3] 페이스북 포스트 얻어오기
+def getFacebookPost(page_id, access_token, from_date, to_date, num_statuses):
+
+    base = "https://graph.facebook.com/v2.8"
+    node = "/%s/posts" % page_id
+    fields = "/?fields=id,message,link,name,type,shares,reactions," + \
+             "created_time,comments.limit(0).summary(true)" + \
+             ".limit(0).summary(true)"
+    duration = "&since=%s&until=%s" % (from_date, to_date)
+    parameters = "&limit=%s&access_token=%s" % (num_statuses, access_token)
+    url = base + node + fields + duration + parameters
+
+    retData = get_request_url(url)
+
+    if (retData == None):
+        return None
+    else:
+        return json.loads(retData)
+{% endhighlight %}
+
+<br/>
+[CODE 3]은 5.3절에서 설명한 기간별 포스트를 가져오는 함수이다. 정상적으로 데이터를 수신한 경우 JSON 형태의 값을 반환하고 그렇지 않은 경우에는 ‘None’을 반환한다.
+
+{% highlight python %}
+def getPostItem(post, key):
+    try:
+        if key in post.keys():
+            return post[key]
+        else:
+            return ''
+    except:
+        return ''
+
+def getPostTotalCount(post, key):
+    try:
+        if key in post.keys():
+            return post[key]['summary']['total_count']
+        else:
+            return 0
+    except:
+        return 0
+
+#[CODE 4] 페이스북 포스트 세부 얻어오기
+def getPostData(post, access_token, jsonResult):
+
+    #[CODE 4-1]
+    post_id = getPostItem(post, 'id')
+    post_message = getPostItem(post, 'message')
+    post_name = getPostItem(post, 'name')
+    post_link = getPostItem(post, 'link')
+    post_type = getPostItem(post, 'type')
+
+    post_num_reactions = getPostTotalCount(post, 'reactions')
+    post_num_comment = getPostTotalCount(post, 'comments')
+    post_num_shares = 0 if 'shares' not in post.keys() else post['shares']['count']
+
+    #[CODE 4-2]
+    post_created_time = getPostItem(post, 'created_time')
+    post_created_time = datetime.datetime.strptime(post_created_time, '%Y-%m-%dT%H:%M:%S+0000')
+    post_created_time = post_created_time + datetime.timedelta(hours=+9)
+    post_created_time = post_created_time.strftime('%Y-%m-%d %H:%M:%S')
+
+    #[CODE 4-3]
+    reaction = getFacebookReaction(post_id, access_token) if post_created_time > '2016-02-24 00:00:00' else {}
+    post_num_likes = getPostTotalCount(reaction, 'like')
+    post_num_likes = post_num_reactions if post_created_time < '2016-02-24 00:00:00' else post_num_likes
+
+    #[CODE 4-4]
+    post_num_loves = getPostTotalCount(reaction, 'love')
+    post_num_wows = getPostTotalCount(reaction, 'wow')
+    post_num_hahas = getPostTotalCount(reaction, 'haha')
+    post_num_sads = getPostTotalCount(reaction, 'sad')
+    post_num_angrys = getPostTotalCount(reaction, 'angry')
+
+    jsonResult.append({'post_id':post_id, 'message':post_message,
+                    'name':post_name, 'link':post_link,
+                    'created_time':post_created_time, 'num_reactions':post_num_reactions,
+                    'num_comments':post_num_comment, 'num_shares':post_num_shares,
+                    'num_likes':post_num_likes, 'num_loves':post_num_loves,
+                    'num_wows':post_num_wows, 'num_hahas':post_num_hahas,
+                    'num_sads':post_num_sads, 'num_angrys':post_num_angrys})
 
 {% endhighlight %}
 
 <br/>
+[CODE 4]는 수신한 개별의 포스트 데이터에서 우리가 원하는 데이터를 JSON 형태로 저장하는 함수이다.
+<br/><br/>
+[CODE 4-1]은 JSON 아이템의 “name” 값과 그에 해당하는 “value”를 가져오기 위하여 getPostItem(post, key)라는 함수를 별도로 생성하였다. 우리가 포스트를 요청하며 전달했던 인자중에 레코드의 형태를 구성하지 아니하고 직접 가지고 올 수 있는 “name”들은 ‘id’, ‘message’, ‘name’, ‘link’, ‘type’, ‘created_time’ 이다.
+<br/><br/>
+[CODE 4-2]에서는 얻어온 ‘created_time’을 변환하는 식을 확인할 수 있다.
+<br/><br/>
+기본적으로 페이스북은 협정 세계시(UTC: Coordinated Universal Time) 형식을 사용한다. UTC는 그리니치 평균시(GMT: Greenwich Mean Tim)라고도 불리는데(실제로는 몇 초 차이가 난다) 우리가 사용하는 KST는 GMT(UTC)보다 9시간 빠른 시간을 가지므로 이에 맞게 데이터를 변환하여야 한다. 파이썬의 datetime.timedelta(hours=+9) 함수를 이용하여 수신한 데이터를 국내 시간으로 변환한다.
+<br/><br/>
+[CODE 4-3]은 페이스북의 좋아요 개수를 가져온다. 페이스북은 2016-02-24일을 기점으로 LIKE 이외에 감정을 나타내는 상태를 [그림 5]와 같이 6종류로 추가하였다.
+<br/><br/>
 
+![](/asset/study/python_crawling/3/5.jpg)
+[그림 5] 2015년 2월 추가된 이모티콘
+{: .borderBox}
 
+<br/>
+이로 인해 [코드 15]와 같이 리액션을 해당 포스트 아이디를 이용하여 요청하고, 얻은 데이터를 바탕으로 하여 Like의 개수를  '2016-02-24 00:00:00' 기준으로 비교하여 처리하여야 한다. 적용 이전의 데이터는 기존의 리액션의 개수가 Like의 개수와 동일하며, 이후 데이터의 경우에는 [CODE 5]를 이용하여 데이터를 가지고 온다. 리액션에 대한 필드 파라미터도 스택 오버플로우를 참고하였다.
+
+{% highlight python %}
+#[CODE 5] 페이스북 Reaction 얻어오기
+def getFacebookReaction(post_id, access_token):
+
+    base = "https://graph.facebook.com/v2.8"
+    node = "/%s" % post_id
+    reactions = "/?fields=" \
+                "reactions.type(LIKE).limit(0).summary(total_count).as(like)" \
+                ",reactions.type(LOVE).limit(0).summary(total_count).as(love)" \
+                ",reactions.type(WOW).limit(0).summary(total_count).as(wow)" \
+                ",reactions.type(HAHA).limit(0).summary(total_count).as(haha)" \
+                ",reactions.type(SAD).limit(0).summary(total_count).as(sad)" \
+                ",reactions.type(ANGRY).limit(0).summary(total_count).as(angry)"
+    parameters = "&access_token=%s" % access_token
+    url = base + node + reactions + parameters
+
+    retData = get_request_url(url)
+
+    if (retData == None):
+        return None
+    else:
+        return json.loads(retData)
+{% endhighlight %}
+
+<br/>
+해당 포스트의 리액션 JSON을 수신하면, 해당 reaction의 [‘summary’][‘total_count’]에 해당 값이 저장되어 있으며, 이를 편리하게 가져오기 위하여 getPostTotalCount(post, key) 함수를 구성하였다.
+<br/><br/>
+[CODE 4-4]는 나머지 리액션에 대한 값들을 가져오고, 이를 인자로 전달받은 jsonResult에 추가한다.
+
+{% highlight python %}
+#[CODE 6] 페이스북 POST 얻어오기
+def main():
+    page_name = "jtbcnews"
+    app_id = "App ID"
+    app_secret = "App Secret Code"
+    access_token = app_id + "|" + app_secret
+
+    from_date = '2017-02-01'
+    to_date = '2017-02-28'
+
+    num_posts = 50
+    go_next = True
+    jsonResult = []
+
+    page_id = getFacebookNumericID(page_name, access_token)
+
+    if (page_id == None):
+        print ("[%s] %s is Invalid Page Name" % (datetime.datetime.now(), page_name))
+        exit()
+
+    print ("[%s] %s page id is %s" % (datetime.datetime.now(), page_name, page_id))
+
+    #[CODE 6-1]
+    jsonPost = getFacebookPost(page_id, access_token, from_date, to_date, num_posts)
+
+    if (jsonPost == None):
+        print ("No DATA")
+        exit()
+
+    #[CODE 6-2]
+    while (go_next):
+        for post in jsonPost['data']:
+            getPostData(post, access_token, jsonResult)
+
+        if 'paging' in jsonPost.keys():
+            jsonPost =  json.loads(get_request_url(jsonPost['paging']['next']))
+        else:
+            go_next = False
+
+    #[CODE 6-3]
+    with open('%s_facebook_%s_%s.json' % (page_name, from_date, to_date), 'w', encoding='utf8') as outfile:
+        str_ = json.dumps(jsonResult,
+                      indent=4, sort_keys=True,
+                      ensure_ascii=False)
+        outfile.write(str_)
+
+    print ('%s_facebook_%s_%s.json SAVED' % (page_name, from_date, to_date))
+{% endhighlight %}
+
+<br/>
+[CODE 6]은 페이스북 포스트를 얻어오기 위한 main()함수이다. 먼저 [CODE 6-1]에서는 지정한 얻어온 ‘page_id’를 이용하여 해당 페이지를 요청한다. 이 때 검색한 데이터가 ‘num_posts’의 숫자보다 많은 경우에는 ‘paging’ 속성을 가지게 된다.
+<br/><br/>
+[CODE 6-2]에서는 수신한 JSON 데이터를 반복하면서 다음 페이지가 있는 경우에는 해당 URL을 얻어와 데이터를 요청하며 반복하다 더 이상의 “paging”의 “value”가 없으면 반복을 종료한다.
+<br/><br/>
+[CODE 6-3]은 앞에서 반복을 하며 수신한 포스트 들이 JSON 형태로 저장된 jsonResult를 json.dumps()를 이용하여 저장한다. 파이썬은 기본적으로 ASCII 형식의 인코딩을 사용한다. 우리가 코드에서 # -*- coding: utf8 -*-을 선언한다고 하여 모든 값들이 ‘utf-8’ 형식을 가지는 것은 아니며 작성한 코드가 utf-8 형식을 사용한다고 선언하는 것이다. 당연히 코드내에서 사용한 변수명이나 상수값들은 utf-8 형식을 가지게 되지만, 외부로부터 수신한 데이터의 경우에는 UTF-8의 형식을 제공하지 않는 경우가 많다. 더군다나 한글 윈도우에서는 기본적으로 CP949 형식을 사용하므로 이에 대한 변환이 세심하게 요구된다.
+<br/><br/><br/>
