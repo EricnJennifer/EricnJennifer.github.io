@@ -78,6 +78,7 @@ Host: graph.facebook.com
 <br/><br/>
 전달되는 인자는 다음과 같은 특성을 가진다.
 <br/><br/>
+
 | 인자 | 설명 |
 |--------|--------|
 | before | 반환된 데이터 페이지의 처음을 가리키는 커서 |
@@ -108,6 +109,7 @@ Host: graph.facebook.com
 <br/><br/>
 전달되는 인자는 다음과 같은 특성을 가진다. 단 최대 since와 until의 값의 범위는 6개월 이내이어야 한다.
 <br/><br/>
+
 | 인자 | 설명 |
 |--------|--------|
 | until | 조회 종료 시간을 의미하는 Unix 타임스탬프 값 |
@@ -229,6 +231,7 @@ https://graph.facebook.com/v2.8/[page_name]/?access+token=[App_ID]|[App_Secret_C
 urllib.request.Request(url, data=None, headers={}, origin_req_host=None, unverifiable=False, method=None)
 ```
 <br/><br/>
+
 | 인자 | 설명 |
 |--------|--------|
 | url | 접근할 페이지 URL |
