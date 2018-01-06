@@ -167,7 +167,7 @@ if __name__ == '__main__':
 해당 코드를 수행하면 [그림 2]와 같이 Numeric ID를 수신한 것을 확인할 수 있다.
 <br/><br/>
 
-![](/asset/study/python_crawling/3/2jpg)
+![](/asset/study/python_crawling/3/2.	jpg)
 [그림 2] Numeric ID 획득 결과
 {: .borderBox}
 
@@ -232,7 +232,118 @@ urllib.request.Request(url, data=None, headers={}, origin_req_host=None, unverif
 
 <br/>
 
+{% highlight python %}
+# [CODE 4]
+    try:
+        response = urllib.request.urlopen(req)
+        if response.getcode() == 200:
+            data = json.loads(response.read().decode('utf-8'))
+            print ("%s Facebook Numeric ID : %s" % (page_id, data['id']))
+    except Exception as e:
+        print (e)
+{% endhighlight %}
 
+<br/>
+“try… except” 구문은 일반적으로 어떠한 동작을 수행하면서 발생하는 오류를 처리하기 위한 블록이다. “try” 블록내의 처리중 시스템 오류가 발생하면 “except” 이하의 블록이 처리되며, “Exception”을 이용하여 해당 오류가 무엇인지 확인할 수 있다(본 책은 파이썬 프로그래밍 과정이 아니므로 ‘try…except’에 대하여 자세히 설명하지 아니한다. 좀더 자세한 사항은 파이썬 도움말을 참조하기 바란다)
+<br/><br/>
+urllib.request.Request()를 이용하여 생성한 req 객체를 urllib.request.urlopen()함수에 전달하여 지정한 URL에 해당하는 객체를 가지고 온다. 반환된 객체는 다음과 같은 메소드를 제공한다.
+<br/><br/>
+
+|--------|--------|
+| geturl() | 응답한 서버의 URL을 포함하며, Redirect된 경우에는 Redirect 서버의 URL을 반환한다 |
+| info()| 페이지의 헤더값과 같은 meta 정보를 가지고 온다 |
+| getcode()| 서버의 HTTP 응답 코드를 반환한다 |
+| origin_req_host | RFC 2965 기반의 요청한 호스트의 호스트 명 또는 IP 어드레스를 지정한다. 기본값은 http.cookies.requst_host(self) 값이다 |
+| unverifiable | 해당 요청에 대하여 재 확인(검증)이 요청되는 경우에 지정한다. 기본값은 ”False”이다. 쿠키의 값 인증 등을 위해 사용한다 |
+| method | HTTP 요청의 방식을 지정한다. 기본값은 ‘GET’ 방식이다 |
+{: .table table-striped}
+
+<br/>
+반환받은 response 객체의 서버 응답코드가 정상적인 경우(200 반환)에는 수신한 데이터에서 원하는 정보를 찾기 위한 작업을 수행한다.
+<br/><br/>
+반환되는 값은 바이트열(Bytes)로 구성되어 있으며, 이를 해석하기에 적절한 형태로 변환하여야 한다. 앞서 이야기 했듯이 수신된 데이터는 JSON 형태를 가지고 있기 때문에 일단 수신한 데이터를 “json” 모듈에 전달하기 위하여 ‘utf-8’ 형식으로 디코딩한 후 전달한다.
+<br/><br/>
+정상적으로 데이터를 수신하게 되면 data는 다음과 같은 JSON 속성을 가진다.
+
+> {“id”: “240263402699918”, “name”: “JTBC 뉴스”}
+
+여기서 “Id”는 “jtbcnews”의 Nemeric ID를 의미하며, “name”은 해당페이지명을 의미한다. 우리는 코드를 통하여 “jtbcnews”의 Numeric ID를 얻었으며, 이를 페이지 아이디(Page ID)라고 부를 것이다. 이제 다음절에서는 페이지 아이디를 이용하여 페이지를 검색하고 데이터를 가지고 오는 방법에 대해 알아보도록 하겠다.
+<br/><br/><br/><br/>
+### 5.3 페이스북 포스트(/{post-id})) 가져오기
+<br/><br/>
+페이스북의 게시물들은 포스트(Post)를 이용하여 관리된다. 포스트는 공개된 페이지에 대하여 액세스 토큰(access token)을 이용하여 접근할 수 있으며, 페이지의 공개 범위 설정에 의하여 조회되는 데이터의 접근 정도가 결정된다.
+
+> GET /[version info]/{post-id}
+> Host: graph.facebook.com
+
+포스트를 통하여 요청하는 주요 데이터는 다음과 같다.
+<br/><br/>
+| 필드명 | 설명 | 반환 형식 |
+|--------|--------|--------|
+| id | 포스트 ID | String |
+| comments | 댓글 정보 | Object |
+| created_time | 포스트 초기 생성일자 | Datetime |
+| from | 포스트한 사용자에 대한 프로필 정보 | Profile |
+| link | 포스트에 삽입되어 있는 링크 | String |
+| message | 포스트 메시지 | String |
+| name | 링크의 이름 | String |
+| object_id | 업로드한 사진 또는 동영상 ID | String |
+| parent_id | 해당 포스트의 부모 포스트 | String |
+| picture | 포스트에 포함되어 있는 사진들의 링크 | String |
+| place | 포스트를 작성한 위치 정보 | Place |
+| reactions | 좋아요, 화나요 등에 대한 리엑션 정보 | Obejct |
+| shares | 포스트를 공유한 숫자 | Object |
+| type | 포스트의 객체 형식 | enum{link, status, photo, video, offer} |
+| updated_time | 포스트가 최종 업데이트된 시간 | Datetime|
+{: .table table-striped}
+
+<br/>
+게시글을 가지고 오기 위하여 아래와 같이 코드를 작성한다.
+
+{% highlight python %}
+# -*- coding: utf-8 -*-
+# version: 3.5
+
+import sys
+import urllib.request
+import json
+
+if __name__ == '__main__':
+
+    page_name = "jtbcnews"
+    page_id = "240263402699918"
+    app_id = "[App ID]"
+    app_secret = "[App Secret Code]"
+
+    # [CODE 1]
+    from_date = "2017-01-01"
+    to_date = "2017-01-31"
+    num_statuses = "10"
+    access_token = app_id + "|" + app_secret
+
+    # [CODE 2]
+    base = "https://graph.facebook.com/v2.8"
+    node = "/%s/posts" % page_id
+    fields = "/?fields=id,message,link,name,type,shares,reactions," + \
+             "created_time,comments.limit(0).summary(true)" + \
+             ".limit(0).summary(true)"
+    duration = "&since=%s&until=%s" % (from_date, to_date)
+    parameters = "&limit=%s&access_token=%s" % (num_statuses, access_token)
+    url = base + node + fields + duration + parameters
+
+    req = urllib.request.Request(url)
+
+    try:
+        response = urllib.request.urlopen(req)
+        if response.getcode() == 200:
+            data = json.loads(response.read().decode('utf-8'))
+            print (data)
+
+    except Exception as e:
+        print (e)
+{% endhighlight %}
+
+<br/>
 
 
 
