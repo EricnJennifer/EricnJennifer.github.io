@@ -6,12 +6,6 @@ categories: python_crawling
 ---
 
 
- 항목 | 설명
---------|--------
- 노드(Node) | 기본적으로 사용자, 사진, 페이지, 댓글과 같은 항목(item)을 포함한다
- 에지(Edge)ㅆㄸㅆㄴ ㅆㄸ| 페이지의 사진, 사진의 댓글 등 각 항목간의 연결 링크
- 필드(Field) | 페이지 정보, 해당 페이지 프로필(Profile)등 항목에 대한 정보
-
 
 {% highlight python %}
 import sys
@@ -19,6 +13,7 @@ import urllib.request
 import json
 
 if __name__ == '__main__':
+
     # [CODE 1]
     page_name = "jtbcnews"
     app_id = "[App ID]"
