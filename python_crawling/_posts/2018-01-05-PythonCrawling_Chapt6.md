@@ -10,7 +10,7 @@ categories: python_crawling
 우리는 [1. Facebook API 사용등록](https://ericnjennifer.github.io/python_crawling/2018/01/05/PythonCrawling_Chapt2.html)에서 페이스북 App을 설정하였다. 이제 해당 앱 ID와 비밀키를 가지고 파이썬을 이용하여 데이터를 가지고 오는 방법에 대하여 설명하고자 한다.
 <br/><br/>
 일반적으로 근래 서비스되는 모든 웹 서비스는 OAuth라는 인증 방식을 통하여 사용자 계정에 대한 접근을 하게 된다. 그러나 페이스북은 OAuth2 방식을 채용하면서 기본적으로 ‘https’ 프로토콜을 적용하고 편리한 방식의 그래프 API를 이용해 페이스북에 접근하는 방식을 제공한다. 그래프 API는 “소셜 그래프”라는 명칭에서 유래된 것으로 다음 항목을 가지고 있다.
-<br/><br/>
+<br/>
 
 | 항목 | 설명 |
 |--------|--------|
@@ -19,7 +19,7 @@ categories: python_crawling
 | 필드(Field) | 페이지 정보, 해당 페이지 프로필(Profile)등 항목에 대한 정보 |
 {: .table table-striped}
 
-<br/><br/>
+<br/>
 그래프 API는 HTTP 기반으로 설계되어 쉽게 이해할 수 있으며 웹 브라우저에서도 동작할 수 있는 장점을 가지고 있으나 보안성이 취약한 단점을 가지고 있다. 보안이 필요한 경우에는 OAuth 인증 방식을 사용하는 것을 권장하나 본 책의 범위를 넘어서는 관계로 여기서는 그래프 API의 엑세스 토큰을 전달하는 방식을 사용한다.
 <br/><br/>
 <br/><br/>
@@ -138,7 +138,6 @@ Host: graph.facebook.com
 
 <br/><br/>
 그러나 아쉽게도 페이스북 API는 고유 이름을 이용하여 접근할 수 있는 방법을 제공하지 않는다. 페이지의 접근을 위해서 페이스북에서는 고유의 숫자형식 ID(Numeric ID)를 사용하게 되므로 이를 위해 그래프 API를 이용하여 해당 페이지의 숫자 형식 ID를 가지고 와야 한다. 아래와 같이 [코드 1]을 작성한다
-<br/><br/>
 
 {% highlight python %}
 import sys
@@ -225,12 +224,11 @@ https://graph.facebook.com/v2.8/[page_name]/?access+token=[App_ID]|[App_Secret_C
 
 <br/><br/>
 “urllib.request” 모듈은 URL을 이용하여 고수준(high level)의 HTTP 클라이언트 인터페이스를 위한함수(function)와 클래스(class)제공하며 “Request” 클래스는 URL 요청을 하기 위한 방법을 제공한다. “Urllib.request.Request()” 생성자는 다음과 같은 방식으로 설정한다.
-<br/><br/>
 
 ```
 urllib.request.Request(url, data=None, headers={}, origin_req_host=None, unverifiable=False, method=None)
 ```
-<br/><br/>
+<br/>
 
 | 인자 | 설명 |
 |--------|--------|
@@ -242,7 +240,9 @@ urllib.request.Request(url, data=None, headers={}, origin_req_host=None, unverif
 | method | HTTP 요청의 방식을 지정한다. 기본값은 ‘GET’ 방식이다 |
 {: .table table-striped}
 
-<br/><br/>
+<br/>
+
+
 
 
 
