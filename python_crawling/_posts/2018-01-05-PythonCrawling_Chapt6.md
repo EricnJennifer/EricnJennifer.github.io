@@ -390,7 +390,7 @@ if __name__ == '__main__':
 수신된 JSON 형식의 포스트의 실제 페이스북 화면은 [그림 3]과 같다.
 <br/><br/>
 
-![](/asset/study/python_crawling/3/3.jpg)
+![](/asset/study/python_crawling/3/3.JPG)
 [그림 3] JTBCNEWS(ID = 240263402699918) 포스트
 {: .borderBox}
 
