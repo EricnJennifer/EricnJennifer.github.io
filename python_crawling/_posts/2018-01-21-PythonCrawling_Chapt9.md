@@ -1,6 +1,6 @@
 ---
 layout: post_study
-title:  9. 네이버 데이터 수집하기
+title:  8. 네이버 데이터 수집하기
 date: 2018-01-21 07:01:00
 categories: python_crawling
 ---
