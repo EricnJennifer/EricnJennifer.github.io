@@ -1,6 +1,6 @@
 ---
 layout: default
-title: E&J 살아가는 
+title: E&J  
 ---
 <div class="well">
     <div class="list-group">
