@@ -34,7 +34,7 @@ categories: python_crawling
 설치는 단순하게 pip를 이용하여 이루어진다. 우리는 파이썬 3.x 버전을 사용하고 있으므로 ‘beautifulsoup4’를 설치한다.
 
 {% highlight python %}
-[파이썬이 설치된 경로]\\pip install bs4
+[파이썬이 설치된 경로]\\pip install beautifulsoup4
 {% endhighlight %}
 
 <br/>
