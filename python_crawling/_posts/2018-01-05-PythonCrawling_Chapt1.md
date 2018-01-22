@@ -4,7 +4,7 @@ title:  BingData & SNS
 date: 2018-01-05 01:01:00
 categories: python_crawling
 ---
-## 1. BIGDATA와 SNS(Social Network Service)
+## BIGDATA와 SNS(Social Network Service)
 <br/><br/>
 
 ![](/asset/study/python_crawling/1/1.jpg)
@@ -23,7 +23,7 @@ categories: python_crawling
 정보의 특성은 영속성을 가질 수 있는것과 그렇지 않은 것으로 분리된다. 영속성을 가지는 정보란 역사적 사실과 같이 변화지 않는 것이 될 것이다. 그러나 대부분의 정보는 시간이 지나면서 무의미하거나 존재의 가치가 희석되게 된다. 특히 요즘 대세인 SNS(Social Network Service)의 경우에는 그 정보가 한시적이며 휘발성을 가지고 있다(한때 유행이었던 등갈비집은 수많은 프렌차이즈가 난립하며 유행하였지만 한순간에 사라져버렸다. 그러한 맛집 정보는 유행에 따라 정보의 가치가 올라갔지만 가계의 폐업이나 유행이 지나감으로써 무의미한 정보가 된다).
 <br/><br/>
 
-### 1.1 Socail Network 사용 현황
+### Socail Network 사용 현황
 <br/><br/>
 
 ![](/asset/study/python_crawling/1/2.jpg)
@@ -34,7 +34,7 @@ categories: python_crawling
 전 세계적으로 많이 사용하고 있는 SNS 프로그램은 약 5개 정도로 [그림 2]와 같이 사용자 분포를 가지고 있다. 데이터를 수집하려고 하는 지역에 따라 어떤 프로그램이 사용되고 있는지 참고하기 바란다.
 <br/><br/>
 
-### 1.2 Socail Data Flow
+### Socail Data Flow
 <br/><br/>
 
 ![](/asset/study/python_crawling/1/3.jpg)
@@ -45,7 +45,7 @@ categories: python_crawling
 SNS를 통하여 수집되는 데이터는 [그림 3]과 같은 속성을 가진다. 일반적으로 생성되는 데이터들은 단기(instant) 속성을 가지므로 유행이 민감한 정보등을 분석할 때 유효하게 사용할 수 있다. 또한 비슷한 경향을 가진 사람들끼리 팔로우(Follow) 하거나 좋아요(like)등을 누르게 되므로 유사성 분석을 통하여 추천(Recommendation) 서비스 등의 정보로 활용 가능하다.
 <br/><br/>
 
-### 1.3 데이터 수집(Crawling)과 처리
+### 데이터 수집(Crawling)과 처리
 <br/><br/>
 
 ![](/asset/study/python_crawling/1/4.jpg)
@@ -58,7 +58,7 @@ SNS를 통하여 수집되는 데이터는 [그림 3]과 같은 속성을 가진
 저장된 데이터는 검색의 효율성을 높이기 위하여 인덱싱(Indexing) 과정을 거치게 되고 , 이러한 데이터를 가공하여 축약된 정보DB(Mart DB)를 생성한다. 이후 이 정보를 이용하여 사용자에게 효율적으로 보여주기 위해 시각화(Visualizatino) 과정을 거쳐 인포그래픽(Infographic-정보를 포함한 그래픽)으로 최종적으로 생성해 내는 것이 빅데이터의 수집, 분석, 시각화 과정이다.
 <br/><br/>
 
-### 1.4 데이터 수집(Crawling) 규칙
+### 데이터 수집(Crawling) 규칙
 <br/><br/>
 인터넷 상에 존재하는 데이터는 누군가의 노력으로 생산되어진 저작권을 가지고 있는 자료로 취급되어야 한다. 초창기 인터넷 사용자는 "Internet is Free"라고 외치며 저작권에 대해 무관심하려는 의도를 보여왔다. 그러나 컨텐츠 생산자가 자유로운 사용을 허락하지 않는 이상 그 저작권은 생산자에게 귀속되며 우리는 이를 조심하게 사용하여야 한다.
 <br/><br/>
@@ -87,7 +87,7 @@ SNS를 통하여 수집되는 데이터는 [그림 3]과 같은 속성을 가진
 실 예로 <a href="http://www.naver.com/robots.txt">http://www.naver.com/robots.txt</a> 에 웹 브리우저를 이용하여 접근해 보면 네이버의 크롤러 접근 규칙에 대해 확인이 가능하다.
 <br/><br/>
 
-### 1.5 SNS API(Application Programming Interface)
+### SNS API(Application Programming Interface)
 <br/><br/>
 
 ![](/asset/study/python_crawling/1/5.jpg)
