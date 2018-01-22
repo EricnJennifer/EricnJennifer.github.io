@@ -1,6 +1,6 @@
 ---
 layout: default
-title: E&J  
+title: E&J 여행이야기
 ---
 <div class="well">
     <div class="list-group">
