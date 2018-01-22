@@ -552,4 +552,4 @@ def getNatVisitor(yyyymm, nat_cd, ed_cd):
 <br/>
 [CODE 2]는 ‘matplotlib’를 이용하여 그래프를 그리는 코드를 포함하고 있다. 이 책을 읽는 독자들은 아마 한번 정도씩은 문자열 처리를 하면서 ‘UTF-8’과 ‘CP949’ 때문에 고생을 한적이 있을 것이다. ‘matplotlib’에서도 마찬가지로 그래프를 그리면서 한글을 처리하고자 하면 깨지는 현상이 발생한다. 이는 모듈이 기본으로 “sans-serif” 폰트를 사용하기 떄문이다. 이를 해결하기 위해서 ‘matplotlib’의 ‘font_manager’와 ‘resource’에 윈도우에서 사용하는 한글 폰트를 지정하여 주면 해결된다(만약 리눅스나 Mac을 사용하는 경우에는 시스템 해당 경로를 지정해 주면 된다).
 <br/><br/>
-‘matplotlib’에 관하여는 [PYTHON 시각화 >> 2. 그래프를 그리자 - matplotlib](https://ericnjennifer.github.io/python_visualization/2018/01/21/PythonVisualization_Chapt2.html)"에서 좀더 자세히 다루도록 하겠다.
+‘matplotlib’에 관하여는 [PYTHON 시각화 >> 2. 그래프를 그리자 - matplotlib](https://ericnjennifer.github.io/python_visualization/2018/01/21/PythonVisualization_Chapt2.html)에서 좀더 자세히 다루도록 하겠다.
