@@ -90,7 +90,7 @@ if __name__ == "__main__":
 {% endhighlight %}
 
 <br/>
-코드를 수행하여 ‘조선일보’와 ‘jtbc’뉴스에 대한 다빈도 명사를 확인하여 보면 [그림 1]과 [그림 2]와 같이 나타남을 확인할 수 있다.
+코드를 수행하여 ‘조선일보’와 ‘jtbc뉴스'에 대한 다빈도 명사를 확인하여 보면 [그림 1]과 [그림 2]와 같이 나타남을 확인할 수 있다.
 <br/><br/>
 
 ![](/asset/study/python_visualization/12.jpg)
@@ -100,7 +100,7 @@ if __name__ == "__main__":
 <br/><br/>
 
 ![](/asset/study/python_visualization/13.jpg)
-[그림 2] 조선일보 페이스북에서 2016-10-01~2017-03-12간 사용한 다빈도 명사
+[그림 2] JTBC 페이스북에서 2016-10-01~2017-03-12간 사용한 다빈도 명사
 {: .borderBox}
 
 <br/>
@@ -110,13 +110,13 @@ if __name__ == "__main__":
 <br/><br/>
 
 ![](/asset/study/python_visualization/14.jpg)
-[그림 3] 조선일보 페이스북 단빈도 명사 워드 클라우드
+[그림 3] 조선일보 페이스북 다빈도 명사 워드 클라우드
 {: .borderBox}
 
 <br/><br/>
 
 ![](/asset/study/python_visualization/15.jpg)
-[그림 4] JTBC뉴스 페이스북 단빈도 명사 워드 클라우드
+[그림 4] JTBC뉴스 페이스북 다빈도 명사 워드 클라우드
 {: .borderBox}
 
 <br/>
@@ -166,7 +166,7 @@ def saveWordCloud(wordInfo, filename):
 {% endhighlight %}
 
 <br/>
-‘pytagcloud’도 역시 한글 폰트를 제공하지 않는다. ‘[파이썬이 설치된 경로]\\Lib\\site-packages\\pytagclod\\fonts’ 디렉터리로 이동하면 여러 개의 ‘.ttf’ 파일과 ‘font.json’파일이 [그림 16]과 같이 존재할 것이다(저자의 경우 파이썬이 설치된 경로는 D:\\Program Files\\Python이다)
+‘pytagcloud’도 역시 한글 폰트를 제공하지 않는다. ‘[파이썬이 설치된 경로]\\Lib\\site-packages\\pytagclod\\fonts’ 디렉터리로 이동하면 여러 개의 ‘.ttf’ 파일과 ‘font.json’파일이 [그림 5]와 같이 존재할 것이다(저자의 경우 파이썬이 설치된 경로는 D:\\Program Files\\Python이다)
 <br/><br/>
 
 ![](/asset/study/python_visualization/16.png)
@@ -178,11 +178,11 @@ def saveWordCloud(wordInfo, filename):
 <br/><br/>
 
 ![](/asset/study/python_visualization/17.jpg)
-[그림 6 한글 지원을 위한 fonts.json 파일의 수정
+[그림 6] 한글 지원을 위한 fonts.json 파일의 수정
 {: .borderBox}
 
 <br/>
-‘pytagcloud’는 사용하는 폰트 정보를 ‘fonts.json’에서 관리한다. font.json 파일을 다으과 같이 수정한다.
+‘pytagcloud’는 사용하는 폰트 정보를 ‘fonts.json’에서 관리한다. font.json 파일을 다음과 같이 수정한다.
 
 {% highlight python %}
 {
