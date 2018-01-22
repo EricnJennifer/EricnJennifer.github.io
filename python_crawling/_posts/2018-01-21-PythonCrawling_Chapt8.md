@@ -213,7 +213,7 @@ class TWoauth():
 <br/><br/>
 다음은 "/statuses/filter.json"에 접근하기 위한 URL의 예를 나타낸다.
 
-{% highlight %}
+{% highlight  python %}
 https://stream.twitter.com/1.1/statuses/filter.json?oauth_consumer_key=MlQHYIaVcsmjr2h4defzRi88H&oauth_nonce=98691135&oauth_signature=6bIsjX0caJt7vQbKYuCJdPU1u%2Fk%3D&oauth_signature_method=HMAC-SHA1&oauth_token=836816176235888640-6lFKqe8OkkUA8NxYz6cWRdv7cJTEALb&%ED%83%84%ED%95%B5%2C%EB%B0%95%EA%B7%BC%ED%98%9C%2C%EA%B4%91%ED%99%94%EB%AC%B8=track&oauth_timestamp=1488649098&oauth_version=1.0&oauth_body_hash=2jmj7l5rSw0yVb%2FvlWAYkK%2FYBwk%3D
 {% endhighlight %}
 
