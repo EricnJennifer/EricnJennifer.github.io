@@ -123,7 +123,7 @@ categories: python_crawling
 본 예제에서는 네이버 영화의 랭킹(‘http://movie.naver.com/movie/sdb/rank/rmovie.nhn’) 사이트를 urllib.urlopen() 메소드를 이용하여 읽어온 후 ‘BeautifulSoup’ 객체를 ‘html.parser’ 기본 객체를 이용하여 생성하였다. ‘soup.prettify()’ 메소드를 이용하면 ‘BeautifulSoup’ 객체를 들여쓰기(indent)한 상태로 확인할 수 있다. 실제 호출한 홈페이지는 [그림 1]과 같은 형태를 가진다.
 <br/><br/>
 
-![](/asset/study/python_crawling/3/24.jpg)
+![](/asset/study/python_crawling/3/24.png)
 [그림 1] 네이버 영화 랭킹 페이지
 {: .borderBox}
 
@@ -131,7 +131,7 @@ categories: python_crawling
 우리가 자료로 가지고 오고 싶은 데이터는 영화제목이므로 HTML이 어떻게 구성되어있는지 확인하기 위하여 브라우저의 소스보기 기능을 이용하면 [그림 2]와 같이 구성되어 있는 것을 확인할 수 있다.
 <br/><br/>
 
-![](/asset/study/python_crawling/3/25.jpg)
+![](/asset/study/python_crawling/3/25.png)
 [그림 2] 네이버 영화 랭킹 HTML 구조
 {: .borderBox}
 
@@ -192,4 +192,4 @@ tags = soup.findAll('div', attrs={'class':'tit3'})
 {% endhighlight %}
 
 <br/>
-우리는 수집한 ‘<div>’ 태그 내에서 ‘a’ 태그에 대한 값을 확인하였고, ‘a’ 태그 내에 있는 텍스트를 ‘.text’ 속성을 이용하여 손쉽게 네이버 영화 랭킹 50개의 제목을 추출하였다. 또한 ‘<a>’ 내의 ‘title’ 속성에도 제목을 포함하고 있으므로 tag.a[‘title’] 과 같은 방식으로도 제목의 추출이 가능하다.
+우리는 수집한 ‘<div>’ 태그 내에서 ‘a’ 태그에 대한 값을 확인하였고, ‘a’ 태그 내에 있는 텍스트를 ‘.text’ 속성을 이용하여 손쉽게 네이버 영화 랭킹 50개의 제목을 추출하였다. 또한 'a' 태그 내의 ‘title’ 속성에도 제목을 포함하고 있으므로 tag.a[‘title’] 과 같은 방식으로도 제목의 추출이 가능하다.
