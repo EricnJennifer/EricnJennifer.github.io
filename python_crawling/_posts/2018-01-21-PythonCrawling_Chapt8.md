@@ -193,7 +193,7 @@ class TWoauth():
 <br/>
 [CODE 1]은 oauth2 모듈을 이용하여 트위터에 인증을 수행하기 위하여 TWoauth 클래스를 생성하였다. 초기 클래스를 생성하면서 우리는 사용할 ‘consumer_key/secret’과 ‘access_token/secret’을 저장하고 기본적으로 Token을 요구하기 위하여 필요한 암호화 방식과 서버에 접근 방식을 저장하였다. 또한 인증이 완료되고 서비스 API를 사용하기 위해서는 인증 정보를 유지하여야 하므로 Opener를 생성하기 위하여 기본적으로 ‘http_handler’와 ‘https_handler’를 설정하였다.
 <br/><br/>
-‘getTWRequest()’ 함수는 실질적으로 인증 과정을 수행한다. ‘oauth2.Request.from_consumer_and_token()’ 함수를 이용하여 ‘access_token’을 요청하는 ‘request’를 생성한다. [그림 11]은 ‘access_token’을 요청하기 위하여 기본적인 값들을 생성한 데이터이다.
+‘getTWRequest()’ 함수는 실질적으로 인증 과정을 수행한다. ‘oauth2.Request.from_consumer_and_token()’ 함수를 이용하여 ‘access_token’을 요청하는 ‘request’를 생성한다. [그림 2]는 ‘access_token’을 요청하기 위하여 기본적인 값들을 생성한 데이터이다.
 <br/><br/>
 
 ![](/asset/study/python_crawling/3/11.jpg)
@@ -214,6 +214,7 @@ class TWoauth():
 다음은 "/statuses/filter.json"에 접근하기 위한 URL의 예를 나타낸다.
 <br/>
 > https://stream.twitter.com/1.1/statuses/filter.json?oauth_consumer_key=MlQHYIaVcsmjr2h4defzRi88H&oauth_nonce=98691135&oauth_signature=6bIsjX0caJt7vQbKYuCJdPU1u%2Fk%3D&oauth_signature_method=HMAC-SHA1&oauth_token=836816176235888640-6lFKqe8OkkUA8NxYz6cWRdv7cJTEALb&%ED%83%84%ED%95%B5%2C%EB%B0%95%EA%B7%BC%ED%98%9C%2C%EA%B4%91%ED%99%94%EB%AC%B8=track&oauth_timestamp=1488649098&oauth_version=1.0&oauth_body_hash=2jmj7l5rSw0yVb%2FvlWAYkK%2FYBwk%3D
+
 <br/>
 해당 URL로 데이터를 요청하게 되는 경우 ‘oauth_token’을 계속 유지하여야 하기 때문에 ‘urllib.request.OpenerDirector()’를 이용하여 핸들러를 등록하고 유지한다.
 <br/><br/>
@@ -231,4 +232,6 @@ def fetch(filter, jsonResult):
 {% endhighlight %}
 
 <br/>
-‘/statuses/filter.json’ 엔드포인트(endpoint)는 필터(track)의 조건에 맞는 모든 공개 트윗을 반환해준다. “POST”와 “GET” 방식을 모두 허용하지만 매개변수가 너무 많아 길어지게 되면 요청이 거부될 수 있으므로, 매개변수가 많은 경우에는 “POST’를 사용하는 것이 좋다. 기본적으로 최대 400개의 검색어와 5,000개의 사용자 ID를 허용하므로 최근 이슈가 되고 있는 검색어를 분석하기에 충분할 수 있다고 볼 수 있다.
+‘/statuses/filter.json’ 엔드포인트(endpoint)는 필터(track)의 조건에 맞는 모든 공개 트윗을 반환해준다. “POST”와 “GET” 방식을 모두 허용하지만 매개변수가 너무 많아 길어지게 되면 요청이 거부될 수 있으므로, 매개변수가 많은 경우에는 “POST’를 사용하는 것이 좋다.
+<br/><br/>
+기본적으로 최대 400개의 검색어와 5,000개의 사용자 ID를 허용하므로 최근 이슈가 되고 있는 검색어를 분석하기에 충분할 수 있다고 볼 수 있다.
