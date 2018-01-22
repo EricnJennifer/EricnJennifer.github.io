@@ -1,6 +1,6 @@
 ---
 layout: post_study
-title:  1. 빈도 분석 : 문장 형태소 분석 - KoNLPy 설치하기
+title:  1. 빈도 분석 : KoNLPy 설치하기(문장 형태소 분석)
 date: 2018-01-21 10:01:00
 categories: python_visualization
 ---
