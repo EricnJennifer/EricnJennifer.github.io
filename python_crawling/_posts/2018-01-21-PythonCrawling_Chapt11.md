@@ -442,3 +442,114 @@ if __name__ == '__main__':
 {% endhighlight %}
 
 <br/>
+코드를 수행하면 특정 기간 동안 특정 국가의 입국 인원수를 가지고 온 후 그래프를 생성해 낸다. [그림 5]는 2011.01부터 2016.12월까지 중국인 입국자수를 그래프로 표시한 것이다.
+<br/><br/>
+
+![](/asset/study/python_crawling/3/23.jpg)
+[그림 5] 국내 중국 입국자수 추이 (2011.01 ~ 2016.12)
+{: .borderBox}
+
+<br/>
+이제 코드를 살펴 보도록 하자.
+
+{% highlight python %}
+#[CODE 1]
+def getNatVisitor(yyyymm, nat_cd, ed_cd):
+    
+    end_point = "http://openapi.tour.go.kr/openapi/service/EdrcntTourismStatsService/getEdrcntTourismStatsList"
+    
+    parameters = "?_type=json&serviceKey=" + access_key
+    parameters += "&YM=" + yyyymm
+    parameters += "&NAT_CD=" + nat_cd
+    parameters += "&ED_CD=" + ed_cd
+    
+    url = end_point + parameters
+    
+    retData = get_request_url(url)
+    
+    if (retData == None):
+        return None
+    else:
+        return json.loads(retData)
+{% endhighlight %}
+
+<br/>
+출입국 데이터 조회를 위한 End Point는 “http://openapi.tour.go.kr/openapi/service/EdrcntTourismStatsService/getEdrcntTourismStatsList” 이며 전달하는 요청 변수는 다음의 표와 같다.
+<br/><br/>
+
+| 항목 | 파라미터명 | 형식 | 설명 |
+|--------|--------|--------|--------|
+| 년월 | YM | YYYYMM(ex: 201703) | 검색 연월 |
+| 국가코드 | NAT_CD | DDD (ex: 100) | 세자리 국가 코드 |
+| 출/입국 | ED_CD | ‘D’ or ‘E’ | D: 국민 해외 관광객<br/>E: 방한 외래 관광객 |
+{: .table table-striped}
+<br/>
+전달하는 변수는 UTF-8 형식으로 인코딩 되어 있어야 하며 다음 표는 국가 코드중 일부이다. 자세한 사항은 공공데이터 포털 출입국관광통계서비스 활용가이드를 참조하기 바란다.
+<br/><br/>
+
+| 국가명 | 국가 코드 |
+|--------|--------|
+| 한국 | 100 |
+| 중국 | 112 |
+| 일본 | 130 |
+| 미국 | 275 |
+| 영국 | 316 |
+{: .table table-striped}
+<br/>
+정상적으로 데이터를 수신한 경우에는 [“response”][“header”][“resultMsg”]에 ‘OK’값이 회신되며, 수신한 JSON 형식의 데이터 중 각 name별 데이터는 다음 표와 같은 의미를 가지며 수신한 JSON 형식의 예는 다음과 같다.
+<br/><br/>
+
+| 항목 | Name | 형식 | 설명 |
+|--------|--------|--------|--------|
+| 국가명 | natKorNm | STRING | 국가 코드에 해당하는 한글 국가명 |
+| 입출국수 | csForCnt | INT |  |
+{: .table table-striped}
+<br/>
+
+{% highlight python %}
+{
+    "response": {
+        "body": {
+            "items": {
+                "item": {
+                    "ed": "방한외래관광객",
+                    "edCd": "E",
+                    "natCd": 112,
+                    "natKorNm": "중  국",
+                    "num": 91252,
+                    "rnum": 1,
+                    "ym": 201101
+                }
+            },
+            "numOfRows": 10,
+            "pageNo": 1,
+            "totalCount": 1
+        },
+        "header": {
+            "resultCode": "0000",
+            "resultMsg": "OK"
+        }
+    }
+}
+{% endhighlight %}
+
+<br/>
+
+{% highlight python %}
+#[CODE 2]
+    font_location = "c:/Windows/fonts/malgun.ttf"
+    font_name = font_manager.FontProperties(fname=font_location).get_name()
+    matplotlib.rc('font', family=font_name)
+
+    plt.xticks(index, VisitYM)
+    plt.plot(index, cnVisit)
+    plt.xlabel('방문월')
+    plt.ylabel('방문객수')
+    plt.grid(True)
+    plt.show()
+{% endhighlight %}
+
+<br/>
+[CODE 2]는 ‘matplotlib’를 이용하여 그래프를 그리는 코드를 포함하고 있다. 이 책을 읽는 독자들은 아마 한번 정도씩은 문자열 처리를 하면서 ‘UTF-8’과 ‘CP949’ 때문에 고생을 한적이 있을 것이다. ‘matplotlib’에서도 마찬가지로 그래프를 그리면서 한글을 처리하고자 하면 깨지는 현상이 발생한다. 이는 모듈이 기본으로 “sans-serif” 폰트를 사용하기 떄문이다. 이를 해결하기 위해서 ‘matplotlib’의 ‘font_manager’와 ‘resource’에 윈도우에서 사용하는 한글 폰트를 지정하여 주면 해결된다(만약 리눅스나 Mac을 사용하는 경우에는 시스템 해당 경로를 지정해 주면 된다).
+<br/><br/>
+‘matplotlib’에 관하여는 "PYTHON 시각화"에서 좀더 자세히 다루도록 하겠다.
