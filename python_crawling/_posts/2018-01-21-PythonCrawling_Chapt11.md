@@ -137,7 +137,7 @@ if __name__ == '__main__':
 {: .borderBox}
 
 <br/>
-이제 코드를 살펴 보기로 하자. [코드 32]는 유료 관광지 정보 및 입장객수를 조회하기 위한 코드이다. 실제 데이터를 조회하면 분기별로 업데이트 되고 있는 것으로 파악되며, 공공정보가 제공하는 서울특별시 입장 정보 데이터의 수량이 많은 편은 아니여서 조금 아쉬운 상황이다.
+이제 코드를 살펴 보기로 하자. 위 코드는 유료 관광지 정보 및 입장객수를 조회하기 위한 코드이다. 실제 데이터를 조회하면 분기별로 업데이트 되고 있는 것으로 파악되며, 공공정보가 제공하는 서울특별시 입장 정보 데이터의 수량이 많은 편은 아니여서 조금 아쉬운 상황이다.
 
 {% highlight python %}
 #[CODE 1]
@@ -250,6 +250,195 @@ def getTourPointVisitor(yyyymm, sido, gungu, nPagenum, nItems):
 | 외국인 방문객수 | csForCnt | INT | |
 | 내국인 방문객수 | csNatCnt | INT | |
 | 관광지 코드| rnum | INT | 관광지에 고유 부여된 코드 값 |
-
 {: .table table-striped}
+<br/>
+<br/><br/>
+### 10.2 파이썬 그래프 모듈: matplotlib
+<br/><br/>
+파이썬의 장점을 들자면 파이썬은 여러 모듈이 그래프 기능을 지원하는데 가장 일반적으로 사용하는 모듈은 ‘matplotlib’ 이다. 일반적으로 “pip install matplotlib” 을 이용하여 설치가 가능한데 몇 가지 제약 사항이 있다.
+<br/><br/>
+‘matplotlib’는 파이썬 2.7 또는 3.4 이상을 사용한다면 정상적으로 설치가 안된다고 matplotlib의 설치 가이드(http://matplotlib.org/users/installing.html)에 다음과 같이 설명하고 있다.
+<br/>
+> 2.7 또는 3.4 이상의 경우에는 Microsoft Visual C++ 2008(64 bit or 32 bit: 파이썬 2.7) 또는 Microsoft Visual C++ 2010 (64 bit or 32 bit : 파이썬 3.4) 배포 패키지(redistributable package) 필요합니다
+
+<br/>
+먼저 [제어판]의 [프로그램 및 기능]으로 이동하여 “Microsoft Visual C++ Redistibutable…” 패키지가 설치되어 있는지 확인한다.
+<br/><br/>
+
+![](/asset/study/python_crawling/3/19.jpg)
+[그림 1] Visual C++ 재 배포 파일 설치 여부 확인
+{: .borderBox}
+
+<br/>
+필자의 경우에는 Visual Studio를 이용하여 프로그래밍을 하기 때문에 여러 버전의 재배포 패키지가 설치되어 있다. 만약 검색이 되지 않는 경우에는 [그림 2]와 같이 마이크로소프트 다운로드 사이트(https://www.microsoft.com/ko-KR/download/detail.aspx?id=53587)로 이동하여 다운로드 받은 후 설치한다(다운로드 경로의 경우 수시로 바뀌기 때문에 해당 URL이 접근이 불가한 경우 검색을 이용하여 찾기 바란다)
+<br/><br/>
+
+![](/asset/study/python_crawling/3/20.jpg)
+[그림 2] Visual C++ 재배포 가능 패키지 다운로드
+{: .borderBox}
+
+<br/>
+재배포 패키지가 설치되어 있는 경우 도스창(Command Prompot)을 뛰운 후 파이썬이 설치되어 있는 경로로 이동한 후
+
+{% highlight python %}
+c:\\[파이썬 설치 경로]\\pip install matplotlib
+{% endhighlight %}
+
+<br/>
+를 실행하면 [그림 3]과 같이 설치 과정이 진행된다.
+<br/><br/>
+
+![](/asset/study/python_crawling/3/21.jpg)
+[그림 3] “matplotlib” 설치
+{: .borderBox}
+
+<br/>
+정상적으로 설치가 되면 ‘matplotlib’에서 사용하는 ‘numpy’, ‘pyparsing’ 및 ‘cycler’ 패키지가 함께 설치된다. 정상적으로 모듈이 설치되었는지 확인하기 위하여 python을 실행한 후 아래와 같이 코드를 작성한다.
+
+{% highlight python %}
+>>> from matplotlib import pyplot
+>>> pyplot.plot([1,2,3,4],[10,30,20,40])
+>>> pyplot.show()
+{% endhighlight %}
+
+<br/>
+만약 모듈이 정상적으로 설치되었다면 ‘matplotlib’가 [그림 4]와 같이 그래프 폼을 화면에 나타낸다.
+<br/><br/>
+
+![](/asset/study/python_crawling/3/21.jpg)
+[그림 4] “matplotlib”를 이용한 그래프 그리기
+{: .borderBox}
+
+<br/>
+> 필자가 초기에 ‘matplotlib’를 설치했을 경우에는 ‘import’를 하면 프로그램 실행시 ‘font_manager.py’ 쪽에서 에러를 발생하면서 연관 모듈을 프로그램상에 올리지 못한다는 에러가 나오는 현상이 발견되었다.
+> {% highlight python %}
+File "C:\Anaconda3\lib\site-packages\matplotlib\font_manager.py", line 1412, in <module>
+    fontManager = pickle_load(_fmcache)
+{% endhighlight %}
+> 국내 사이트에서 관련 오류에 대한 사항을 찾아도 해결책이 나오지 않다가 스택오버플로우(http://stackoverflow.com/questions/34004063/error-on-import-matplotlib-pyplot-on-anaconda3-for-windows-10-home-64-bit-pc)에서 관련 문제점 및 해결 방법을 발견하였다. 문제의 원인은 윈도우 폰트 디렉터리에서 폰트 정보를 가지고 오면서 발생하는 것이였고, 이를 해결하기 위해서는 “[파이썬 설치 경로]\Lib\site-packages\matplotlib” 아래에 존재하는 “font_manager.py” 파일의
+> {% highlight python %}
+def win32InstalledFonts(directory=None, fontext='ttf'):
+{% endhighlight %}
+> 함수의 일부분을 수정하면 해결된다.
+> {% highlight python %}
+key, direc, any = winreg.EnumValue( local, j)
+if not is_string_like(direc):
+    continue
+if not os.path.dirname(direc):
+    direc = os.path.join(directory, direc)
+direc = direc.split(‘\0’, 1)[0] #파이썬 경로 문제 해결
+direc = os.path.abspath(direc).lower()
+{% endhighlight %}
+> 한동안을 이 부분을 수정하여 사용하였는데 ‘matplotlib 2.0.0’버전으로 업데이트를 한 후 이 부분을 수정하지 않고 사용하여도 문제가 없이 동작하였다. 어느 부분에서 이 부분을 해결하였는지는 귀챠니즘이 발동하여 찾아보지 않았으니 독자분중에 문제가 발생하였다며, 상기 사항을 확인하여 보기 바란다.
+
+<br/><br/>
+### 10.3 출입국 관광 통계 서비스
+<br/><br/>
+출입국 관광 통계 서비스를 이용하면 기간, 방문객 국가의 검색 조건에 따라 출입국자수를 조회 서비스를 제공한다.  국가별 입국자수를 수집하기 위하여 다음의 코드를 작성한다.
+
+{% highlight python %}
+import os
+import sys
+import urllib.request
+import datetime
+import time
+import json
+from config import *
+
+import matplotlib.pyplot as plt
+import matplotlib
+from matplotlib import font_manager, rc
+
+def get_request_url(url):
+    
+    req = urllib.request.Request(url)
+    
+    try: 
+        response = urllib.request.urlopen(req)
+        if response.getcode() == 200:
+            print ("[%s] Url Request Success" % datetime.datetime.now())
+            return response.read().decode('utf-8')
+    except Exception as e:
+        print(e)
+        print("[%s] Error for URL : %s" % (datetime.datetime.now(), url))
+        return None
+
+#[CODE 1]
+def getNatVisitor(yyyymm, nat_cd, ed_cd):
+    
+    end_point = "http://openapi.tour.go.kr/openapi/service/EdrcntTourismStatsService/getEdrcntTourismStatsList"
+    
+    parameters = "?_type=json&serviceKey=" + access_key
+    parameters += "&YM=" + yyyymm
+    parameters += "&NAT_CD=" + nat_cd
+    parameters += "&ED_CD=" + ed_cd
+    
+    url = end_point + parameters
+    
+    retData = get_request_url(url)
+    
+    if (retData == None):
+        return None
+    else:
+        return json.loads(retData)
+
+def main():
+
+    jsonResult = []
+
+    #중국: 112 / 일본: 130 / 미국: 275
+    national_code = "112"
+    ed_cd = "E"
+
+    nStartYear = 2011
+    nEndYear = 2017
+
+    for year in range(nStartYear, nEndYear):
+        for month in range(1, 13):
+
+            yyyymm = "{0}{1:0>2}".format(str(year), str(month))
+
+            jsonData = getNatVisitor(yyyymm, national_code, ed_cd)
+    
+            if (jsonData['response']['header']['resultMsg'] == 'OK'):
+                krName = jsonData['response']['body']['items']['item']["natKorNm"]
+                krName = krName.replace(' ', '')
+                iTotalVisit = jsonData['response']['body']['items']['item']["num"]
+                print('%s_%s : %s' %(krName, yyyymm, iTotalVisit))
+                jsonResult.append({'nat_name': krName, 'nat_cd': national_code,
+                                 'yyyymm': yyyymm, 'visit_cnt': iTotalVisit})
+
+    cnVisit = []
+    VisitYM = []
+    index = []
+    i = 0
+    for item in jsonResult:
+        index.append(i)
+        cnVisit.append(item['visit_cnt'])
+        VisitYM.append(item['yyyymm'])
+        i = i + 1
+            
+    with open('%s(%s)_해외방문객정보_%d_%d.json' % (krName, national_code, nStartYear, nEndYear-1), 'w', encoding='utf8') as outfile:
+        retJson = json.dumps(jsonResult,
+                        indent=4, sort_keys=True,
+                        ensure_ascii=False)
+        outfile.write(retJson)
+    
+
+    #[CODE 2]
+    font_location = "c:/Windows/fonts/malgun.ttf"
+    font_name = font_manager.FontProperties(fname=font_location).get_name()
+    matplotlib.rc('font', family=font_name)
+
+    plt.xticks(index, VisitYM)
+    plt.plot(index, cnVisit)
+    plt.xlabel('방문월')
+    plt.ylabel('방문객수')
+    plt.grid(True)
+    plt.show()           
+    
+if __name__ == '__main__':
+    main()
+{% endhighlight %}
+
 <br/>
