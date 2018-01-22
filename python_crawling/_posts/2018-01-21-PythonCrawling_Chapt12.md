@@ -136,7 +136,7 @@ categories: python_crawling
 {: .borderBox}
 
 <br/>
-HTML의 형식을 확인해 보니 영화제목은 ‘<td>’쌍 안에 ‘<div>쌍을 가지고 있으며, 그 내부에 ‘<a>’ 태그로 구성되어 있음이 확인된다(실제 앞에서 사용한 예제다). 먼저 ‘<div>’ 태그의 속성이 class=’tit3’인 값들을 페이지에서 모두 찾아보자.
+HTML의 형식을 확인해 보니 영화제목은 ‘<td>’쌍 안에 ‘<div>쌍을 가지고 있으며, 그 내부에 ‘a’ 태그로 구성되어 있음이 확인된다(실제 앞에서 사용한 예제다). 먼저 ‘<div>’ 태그의 속성이 class=’tit3’인 값들을 페이지에서 모두 찾아보자.
 
 {% highlight python %}
 >>> import urllib.request
