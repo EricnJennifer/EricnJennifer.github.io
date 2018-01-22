@@ -320,7 +320,7 @@ def getTwitterTwit(tweet, jsonResult):
 |검색|/search/tweets.json <br/> allowed_param: <br/> 'q', 'lang', 'locale', 'since_id', 'geocode', 'max_id', 'since', 'until', 'result_type', 'count', 'include_entities', 'from', 'to', 'source' |
 {: .table table-striped}
 <br/>
-트위터는 큰 결과 세트를 검색하기 위하여 페이징 기법으로 커서링(cursoring)이라는 기법을 사용한다. 먼저 처음에는 cursor의 값을 ‘-1’로 지정하여 결과를 검색하면 ‘previous_cursor’, ‘next_cursor’, ‘previous_cursor_str’ 및 ‘next_cursor_str’을 반환한다. [그림 9]에서 JSON 구조를 잘 살펴 보았다면 트위터는 숫자문자열의 경우에는 항상 해당 ‘키’값과 ‘키_str’을 제공하는 것을 확인할 수 있다.
+트위터는 큰 결과 세트를 검색하기 위하여 페이징 기법으로 커서링(cursoring)이라는 기법을 사용한다. 먼저 처음에는 cursor의 값을 ‘-1’로 지정하여 결과를 검색하면 ‘previous_cursor’, ‘next_cursor’, ‘previous_cursor_str’ 및 ‘next_cursor_str’을 반환한다. [그림 4]에서 JSON 구조를 잘 살펴 보았다면 트위터는 숫자문자열의 경우에는 항상 해당 ‘키’값과 ‘키_str’을 제공하는 것을 확인할 수 있다.
 <br/><br/>
 다음 페이지를 얻기 위하여 우리는 ‘cursor’에 ‘next_cursor’의 값을 전달하여 페이지를 요청하면 된다. 만약 ‘next_cursor’의 값이 ‘0’으로 반환되면 더 이상의 페이지는 없는 것을 의미한다(페이스북에서는 다음 페이지를 요청하는 URL을 보내주므로 단순하게 해당 URL을 호출하는 것으로 데이터를 획득할 수 있었다). 또한 페이스북의 since와 until의 개념은 트위터에서는 Search API에서 사용되며, ‘statuses’에서는 지원하지 않는다. 자세한 부분은 Search API를 참조하기 바란다.
 
