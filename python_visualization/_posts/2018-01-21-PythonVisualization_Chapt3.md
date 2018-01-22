@@ -93,13 +93,13 @@ if __name__ == "__main__":
 코드를 수행하여 ‘조선일보’와 ‘jtbc’뉴스에 대한 다빈도 명사를 확인하여 보면 [그림 1]과 [그림 2]와 같이 나타남을 확인할 수 있다.
 <br/><br/>
 
-![](/asset/study/python_visualization/12.png)
+![](/asset/study/python_visualization/12.jpg)
 [그림 1] 조선일보 페이스북에서 2016-10-01~2017-03-12간 사용한 다빈도 명사
 {: .borderBox}
 
 <br/><br/>
 
-![](/asset/study/python_visualization/13.png)
+![](/asset/study/python_visualization/13.jpg)
 [그림 2] 조선일보 페이스북에서 2016-10-01~2017-03-12간 사용한 다빈도 명사
 {: .borderBox}
 
@@ -109,13 +109,13 @@ if __name__ == "__main__":
 [그림 3]과 [그림 4]는 해당 추출된 단어들을 가지고 워드 클라우드 - 글자들로 구성된 구름 모양의 그림이라고 해석해야 할 것 같다 – 를 생성한 것이다.
 <br/><br/>
 
-![](/asset/study/python_visualization/13.png)
+![](/asset/study/python_visualization/14.jpg)
 [그림 3] 조선일보 페이스북 단빈도 명사 워드 클라우드
 {: .borderBox}
 
 <br/><br/>
 
-![](/asset/study/python_visualization/14.png)
+![](/asset/study/python_visualization/15.jpg)
 [그림 4] JTBC뉴스 페이스북 단빈도 명사 워드 클라우드
 {: .borderBox}
 
@@ -177,7 +177,7 @@ def saveWordCloud(wordInfo, filename):
 실제 ‘pytagcloud’ 코드를 확인해보면 기본 폰트로 ‘Droid Sans’ 지정되어 있고, fonts.json 파일을 참조하여 폰트를 가지고 오게 되어있다. 먼저 우리가 사용할 폰트를 윈도우 폰트 디렉터리에서([PYTHON 시각화 >> 2.3 한글 처리](https://ericnjennifer.github.io/python_visualization/2018/01/21/PythonVisualization_Chapt2.html)에서 설명) 사용할 폰트를 복사하여 ‘[파이썬이 설치된 경로]\\Lib\\site-packages\\pytagclod\\fonts’ 디렉터리에 복사한 후 에디터를 이용하여 ‘fonts.json’ 파일을 [그림 6]과 같이 수정한다.
 <br/><br/>
 
-![](/asset/study/python_visualization/16.png)
+![](/asset/study/python_visualization/17.jpg)
 [그림 6 한글 지원을 위한 fonts.json 파일의 수정
 {: .borderBox}
 
