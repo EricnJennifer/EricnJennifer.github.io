@@ -98,7 +98,7 @@ month
 <br/><br/>
 
 ![](/asset/study/python_visualization/24.png)
-[그림 1] 국내 중궁인 입국수 시각화(Heatmap)
+[그림 1] 국내 중국인 입국수 시각화(Heatmap)
 {: .borderBox}
 
 <br/>
