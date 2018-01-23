@@ -174,7 +174,7 @@ geoJSON 형식과 topoJSON은 지도상의 경계 영역 등을 표시하기에 
 {% endhighlight %}
 
 <br/>
-[그림 8]는 행정구역이 “MultiPolygon“ 형식으로 입력되어 있는 JSON 데이터를 불러들여 지도에 표시한 예이다.
+[그림 9]는 행정구역이 “MultiPolygon“ 형식으로 입력되어 있는 JSON 데이터를 불러들여 지도에 표시한 예이다.
 <br/><br/>
 
 ![](/asset/study/python_visualization/35.png)
