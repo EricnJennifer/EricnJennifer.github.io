@@ -1,6 +1,6 @@
 ---
 layout: post_study
-title:  6. 모듈(module)
+title:  6. 파이썬 모듈(module)
 date: 2017-12-28 07:01:00
 ---
 ## 6. 모듈(module)
