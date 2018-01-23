@@ -1,6 +1,6 @@
 ---
 layout: post_study
-title:  5. 함수 (Functions)
+title:  5. 파이썬 함수 (Functions)
 date: 2017-12-28 06:01:00
 ---
 ## 5. 함수(function)
