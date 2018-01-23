@@ -367,8 +367,8 @@ b
 <br/><br/><br/>
 ### 4.3 공공데이터를 이용한 상관분석
 <br/><br/>
-이번절에서는 앞장에서 공공데이터를 수집한 것을 바탕으로하여 데이터 분석을 수행하고자 한다. 데이터셋을 만들기 위하여 2011년 1월부터 2016년 9월까지의 서울특별시 유료 관광지 입장 정보 파일을 JSON 형태로 저장한다. 그리고 중국, 일본, 미국인의 입국수 정보를 JSON으로 저장한다. 이제 저장이 완료되었으면 다음과 같이 코드를 작성한다.
-
+이번절에서는[PYTHON 크롤링 >> 10. 공공 정보 데이터 수집하기](https://ericnjennifer.github.io/python_crawling/2018/01/21/PythonCrawling_Chapt11.html) 에서 수집한 데이터를 이용하여 데이터 분석을 수행하고자 한다. 데이터셋을 만들기 위하여 2011년 1월부터 2016년 9월까지의 서울특별시 유료 관광지 입장 정보 파일을 JSON 형태로 저장한다. 그리고 중국, 일본, 미국인의 입국수 정보를 JSON으로 저장한다. 이제 저장이 완료되었으면 다음과 같이 코드를 작성한다.
+> 저장된 JSON 파일 : [서울특별시_관광지입장정보_2011_2016.json](https://ericnjennifer.github.io/asset/study/sample_data/서울특별시_관광지입장정보_2011_2016.json) / [중국(112)_해외방문객정보_2011_2016.json](https://ericnjennifer.github.io/asset/study/sample_data/중국(112)_해외방문객정보_2011_2016.json) / [일본(130)_해외방문객정보_2011_2016.json](https://ericnjennifer.github.io/asset/study/sample_data/일본(130)_해외방문객정보_2011_2016.json) / [미국(275)_해외방문객정보_2011_2016.json](https://ericnjennifer.github.io/asset/study/sample_data/미국(275)_해외방문객정보_2011_2016.json)
 
 {% highlight python %}
 import json
