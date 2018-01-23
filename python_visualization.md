@@ -1,6 +1,6 @@
 ---
 layout: default
-title: INFOGRAPHIC의 세계 PYTHON 시각화
+title: PYTHON을 이용한 데이터 분석과 시각화
 ---
 <div class="well">
     <div class="list-group">
