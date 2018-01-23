@@ -184,7 +184,7 @@ geoJSON 형식과 topoJSON은 지도상의 경계 영역 등을 표시하기에 
 <br/>
 ### 6.5 네이버 주소 API를 이용하여 지도에 표시
 <br/><br/>
-포리움을 사용하는 방법을 이해했으니 실제 데이터를 가지고 지도에 표시하는 방법에 대해 알아보도록 하겠다. 본 절에서 다룰 데이터는 서울열린데이터광장에서 제공하는 [서울시 초등학교현황](http://data.seoul.go.kr/dataList/datasetView.do?infId=OA-12059&srvType=S&serviceKind=1&currentPageNo=1)을 다운로드 받아 사용하였다.
+포리움을 사용하는 방법을 이해했으니 실제 데이터를 가지고 지도에 표시하는 방법에 대해 알아보도록 하겠다. 본 절에서 다룰 데이터는 서울열린데이터광장에서 제공하는 서울시 초등학교현황(http://data.seoul.go.kr/dataList/datasetView.do?infId=OA-12059&srvType=S&serviceKind=1&currentPageNo=1)을 다운로드 받아 사용하였다.
 > CSV 파일 : [서울시 초등학교 현황.csv](https://ericnjennifer.github.io/asset/study/sample_data/서울시 초등학교 현황.csv)
 
 먼저 다음의 코드를 작성하자.
@@ -202,7 +202,7 @@ import webbrowser
 #[CODE 1]
 def get_request_url(url):
     req = urllib.request.Request(url)
-    req.add_header("X-Naver-Client-Id", "NAVER API 야이디")
+    req.add_header("X-Naver-Client-Id", "NAVER API ID")
     req.add_header("X-Naver-Client-Secret", "NAVER API SECRET")
     try:
         response = urllib.request.urlopen(req)
@@ -263,7 +263,7 @@ if __name__ == "__main__":
 {% endhighlight %}
 
 <br/>
-해당 코드를 수행하면 [그림 35]와 같이 프렌차이즈 위치 정보를 포함하는 지오맵(GeoMap)이 생생성된 것 확인할 수 있다.
+해당 코드를 수행하면 [그림 1]과 같이 프렌차이즈 위치 정보를 포함하는 지오맵(GeoMap)이 생생성된 것 확인할 수 있다.
 <br/><br/>
 
 ![](/asset/study/python_visualization/es_map.png)
@@ -273,6 +273,6 @@ if __name__ == "__main__":
 <br/>
 네이버로 부터 주소를 가지고 오는 방법은 [PYTHON 크롤링 >> 9. 네이버 지도 API(주소, 좌표변환) 활용](https://ericnjennifer.github.io/python_crawling/2018/01/21/PythonCrawling_Chapt10.html)을 참조하기 바란다.
 <br/><br/>
-[CODE 3]에서는 저장되어잇는 서울시 초등학교 현황 파일을 읽어와 DataFrame의 형식으로 저장한다. [CODE 4]에서는 하나의 열씩 반복하면서 '주소'컬럼의 데이터를 네이버 API를 호출하기 위한 함수로 전한 후 반환값을 받는다. 반환값이 있는 경우에는 .Marker() 메소드를 이용하여 해당 위,경도값에 학교명을 팝업으로 지정하여 추가한다.
+[CODE 3]은 저장되어 있는 서울시 초등학교 현황 파일을 읽어와 DataFrame의 형식으로 저장한다.
 <br/><br/>
-모든 행에 대하여 주소를 통해 얻어온 위경도값으로 만들어진 데이터를 저장한 후 webbrowser.open()을 이용하여 화면에 나타낸다.
+[CODE 4]는 DataFrame내의 데이터를 한 행(row)씩 가져오면서 '주소' 컬럼의 데이터를 네이버 API를 호출하기 위한 함수로 전달하고 반환값을 받는다. 이후 반환값이 있는 경우에는 .Marker() 메소드를 이용하여 해당 위,경도값에 학교명을 팝업으로 지정하여 추가한 후 반복이 종료되면  webbrowser.open()을 이용하여 화면에 나타낸다.
