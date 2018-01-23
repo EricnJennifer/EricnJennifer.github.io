@@ -101,7 +101,7 @@ plot()함수는 다양현 형태의 인자값을 가진다. 먼저, [그림 1]�
 ‘matplotlib’에서 한글을 사용하기 위해서는 약간의 작업이 필요하다. 먼저 탐색기를 이용하여 윈도우 폰트 디렉터리로 [그림 6]처럼 이동해 보자.
 <br/><br/>
 
-![](/asset/study/python_visualization/6.png)
+![](/asset/study/python_visualization/6.jpg)
 [그림 6] 윈도우 설치 디렉터리 아래 Fonts 폴더로 이동
 {: .borderBox}
 
