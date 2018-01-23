@@ -1,7 +1,7 @@
 ---
 layout: post_study
 title:  6. 지도 시각화 – Folium
-date: 2018-01-21 13:01:00
+date: 2018-01-21 14:01:00
 categories: python_visualization
 ---
 ## 6. 지도 시각화 - 포리움(Folium)의 설치 및 활용
