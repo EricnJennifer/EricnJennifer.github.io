@@ -1,6 +1,6 @@
 ---
 layout: post_study
-title:  2. 변수(variable)와 파이썬 자료형(data type) 처리
+title:  2. 파이썬 변수(variable)와 파이썬 자료형(data type) 처리
 date: 2017-12-28 03:01:00
 ---
 ## 2. 변수(variable)와 파이썬 자료형(data type) 처리
