@@ -7,14 +7,14 @@
 		"tags": ["PYTHON", "BASIC"]
 	},
 	{
-		"name": "PYTHON 크롤링",
+		"name": "PYTHON 크롤링(수집)",
 		"image": "python_book.png",
 		"url": "/python_crawling",
 		"date": "Aug 2017",
 		"tags": ["PYTHON", "CRAWLING"]
 	},
 	{
-		"name": "PYTHON 시각화",
+		"name": "PYTHON 분석 & 시각화",
 		"image": "python_book.png",
 		"url": "/python_visualization",
 		"date": "Aug 2017",
