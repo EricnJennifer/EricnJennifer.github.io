@@ -1,6 +1,6 @@
 ---
 layout: post_study
-title:  7. 패키지(Package) 설치
+title:  7. 파이썬 패키지(Package) 설치
 date: 2017-12-28 08:01:00
 ---
 ## 7. 패키지(Package) 설치
