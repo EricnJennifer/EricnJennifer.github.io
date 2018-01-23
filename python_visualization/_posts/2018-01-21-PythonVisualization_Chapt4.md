@@ -1,6 +1,6 @@
 ---
 layout: post_study
-title:  4. 데이터 기반 추천서비스 - 상관관계분석, pandas, numpy
+title:  4. 데이터 기반 추천서비스 - 상관관계분석, pandas
 date: 2018-01-21 12:01:00
 categories: python_visualization
 ---
