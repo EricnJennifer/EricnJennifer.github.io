@@ -1,6 +1,6 @@
 ---
 layout: post_study
-title:  3. 흐름 제어 (Flow Control)
+title:  3. 파이썬 흐름 제어 (Flow Control)
 date: 2017-12-28 04:01:00
 ---
 ## 3. 흐름 제어
