@@ -1,6 +1,6 @@
 ---
 layout: post_study
-title:  BingData & SNS
+title:  BigData & SNS
 date: 2018-01-05 01:01:00
 categories: python_crawling
 ---
