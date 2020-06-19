@@ -78,3 +78,4 @@ categories: blockchain
 즉, 블록체인은 하나의 링크드 리스트(Linked List)와 같은 형식으로 되어 있다.
 
 
+
