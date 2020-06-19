@@ -1,5 +1,5 @@
 ---
-layout: post_blockchain
+layout: post_study
 title:  BLOCKCHAIN
 date: 2020-06-19 01:01:00
 categories: blockchain
