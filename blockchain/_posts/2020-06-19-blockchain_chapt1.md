@@ -49,9 +49,9 @@ categories: blockchain
 <br/><br/>
 #### 1.1 블록(Block)
 <br/><br/>
-
 데이터들을 포함하고 있는 블록은 헤더(Header)와 거래 내역(Tx: Transaction)들로 구성된다. 헤더에는 일반적으로 다음과 같은 내용이 포함된다(아래 표의 설명은 비트코인을 기준으로 설명하였다).
 <br/><br/>
+
 |<center>필드명</center>|<center>크기(byte)</center>|<center>설명</center>|
 |:------:|:------:|:------:|
 | Version | 4 | 버전 정보 |
