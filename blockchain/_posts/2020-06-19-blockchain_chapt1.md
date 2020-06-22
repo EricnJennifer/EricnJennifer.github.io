@@ -53,7 +53,7 @@ categories: blockchain
 <br/><br/>
 
 |<center>필드명</center>|<center>크기(byte)</center>|<center>설명</center>|
-|:------:|:------:|:------:|
+|------|------|------|
 | Version | 4 | 버전 정보 |
 | Previous Block Hash | 32 | 이전 블록 헤더의 해쉬 값 |
 | Merkle Root | 32 | 블록내 트랜젝션들의 머클 트리의 루트에 대한 해쉬 값 |
