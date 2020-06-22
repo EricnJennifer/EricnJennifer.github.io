@@ -49,6 +49,7 @@ categories: blockchain
 <br/><br/>
 #### 1.1 블록(Block)
 <br/><br/>
+
 데이터들을 포함하고 있는 블록은 헤더(Header)와 거래 내역(Tx: Transaction)들로 구성된다. 헤더에는 일반적으로 다음과 같은 내용이 포함된다(아래 표의 설명은 비트코인을 기준으로 설명하였다).
 <br/><br/>
 |<center>필드명</center>|<center>크기(byte)</center>|<center>설명</center>|
@@ -60,6 +61,7 @@ categories: blockchain
 | Difficulty Target | 4 | 블록의 난이도 목표 값 |
 | Nonce | 4 | 채굴자가 올바른 해쉬값을 찾을때 까지의 회수 |
 {: .table table-striped}
+
 <br/>
 헤더 정보중 이전 블록 헤더의 해쉬값을 이용하여 서로의 체인을 구성하게 되므로 각각의 블록을 찾기 위해서 헤더는 매우 중요한 역할을 한다. 각각의 해쉬 값은 SHA256 해쉬 함수를 이용하여 계산되는 32바이트의 값이다.
 <br/><br/>
