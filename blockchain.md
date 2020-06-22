@@ -1,6 +1,6 @@
 ---
 layout: default
-title: BLOCKCHAIN 
+title: 블록체인(BLOCKCHAIN)에 관하여
 ---
 <div class="well">
     <div class="list-group">
