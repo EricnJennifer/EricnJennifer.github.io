@@ -1,6 +1,6 @@
 ---
 layout: post_study
-title:  BLOCKCHAIN
+title:  블록체인과 이더리움이란?
 date: 2020-06-19 01:01:00
 categories: blockchain
 ---
