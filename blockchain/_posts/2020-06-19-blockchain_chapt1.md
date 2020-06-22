@@ -86,11 +86,12 @@ categories: blockchain
 ![](/asset/study/blockchain/1/5.png)
 [그림 5] 블록 체인의 구성
 {: .borderBox}
-<br/><br/>
+
+<br/>
 즉, 블록체인은 하나의 링크드 리스트(Linked List)와 같은 형식으로 되어 있다.
 <br/><br/>
 
-#### 1.3. Nonce 값의 계산 - 작업 증명(POW: Proof Of Work)
+#### 1.3 Nonce 값의 계산 - 작업 증명(POW: Proof Of Work)
 <br/>
 앞에서 블록 헤더에 대한 해쉬값을 구하기 위해서는 Nonce에 해당하는 값을 계산하는 과정이 필요하다고 언급하였다. ‘채굴’ 또는 ‘작업증명’이라는 과정은 Nonce의 값을 변화시키면서 해당 블록이 요구하는 해쉬값 보다 작은 해쉬값이 나오도록 하는 반복 과정이다.
 <br/><br/>
