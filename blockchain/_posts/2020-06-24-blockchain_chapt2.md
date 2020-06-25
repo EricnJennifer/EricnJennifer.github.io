@@ -22,7 +22,7 @@ categories: blockchain
 먼저 "Geth"의 공식 사이트인 https://geth.ethereum.org/downloads/ 에 접속하여 독자의 운영체제에 맞는 프로그램을 다운로드 받는다.
 <br/><br/>
 
-![](/asset/study/blockchain/1/2.png)
+![](/asset/study/blockchain/2/1.png)
 [그림 1] Go Ethereum 다운로드 페이지 (https://geth.ethereum.org/downloads)
 {: .borderBox}
 
