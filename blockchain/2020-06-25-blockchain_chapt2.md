@@ -14,3 +14,9 @@ categories: blockchain
 <br/><br/>
 일반적으로 스마트 컨트랙트를 개발하고 배포하는 과정은 "Test RPC(사설 네트워크)"에서 개발 및 디버깅을 한 후 이더리움 메인 네트워크와 동일한 구조를 가진 "TestNet"에서 테스트를 하고 완료되면 메인 네트워크(Ethereum Main Network)에 배포한다.
 <br/><br/>
+
+### 1. Go Ethereum
+<br/>
+이더리움 네트워크의 구조를 알아보기 위해서는 사용에는 조금 불편하지만 "Go Ethereum(이하 Geth)를 이용하는 방법에 대해 알아보는 것이 필요하다. "Geth"는 "HTTP JSON RPC", "web3.js" 및 "Solidity" 인터페이스를 제공해 주며, 이를 이용하여 스마트 컨트랙트를 작성하거나 계정간의 데이터를 전송할 수 있다. 실제 책에서 본 과정을 진행하면서 우리는 가나슈(Ganache)라는 테스트 네트워크를 이용할 것이지만 기본적인 개념을 위하여 먼저 "Geth"를 설치해 보도록 하자.
+<br/><br/>
+먼저 "Geth"의 공식 사이트인 https://geth.ethereum.org/downloads/ 에 접속하여 독자의 운영체제에 맞는 프로그램을 다운로드 받는다.
