@@ -1,6 +1,6 @@
 ---
 layout: post_study
-title:  블록체인과 이더리움이란?
+title:  스마트 컨트랙트(Smart Contarct) 개발환경 구축
 date: 2020-06-24 01:01:01
 categories: blockchain
 ---
@@ -28,3 +28,5 @@ categories: blockchain
 
 <br/>
 2018년 8월 현재 "Geth"는 v1.8.13 까지 배포되었다. 본 책에서는 윈도우즈를 기반으로 설명할 예정이므로 "Geth 1.8.13 for Windows"를 클릭하여 다운로드 받은 후 설치 파일을 실행한다. 설치 파일을 실행하면 다음과 같이 라이센스 부분에 대한 동의를 요구하는 대화상자가 나타난다.
+
+sdfsdffsd   
