@@ -89,8 +89,8 @@ c:\Users\MarkLee\geth
 우리는 이더리움 메인 네트워크의 노드로 'Geth"를 사용하는 것이 아니라 사설(private) 이더리움 네트워크를 설치하고 스마트 컨트랙트를 개발하는 것이 목적이므로 프로그램을 종료 시킨 후 (Ctrl + C 키 이용) 사설 네트워크를 구동하도록 하겠다.
 
 <br/>
-```html
-<table border=1 background-color="#F0F0F0">
+
+<table border=1 background-color='#F0F0F0'>
 <tr>
 <td>
 시스템 환경 변수 설정
@@ -116,7 +116,7 @@ c:\Users\MarkLee\geth
 </td>
 </tr>
 </table>
-```
+
 <br/><br/>
 
 ### 1.1 사설 이더리움의 설치
