@@ -90,7 +90,7 @@ c:\Users\MarkLee\geth
 
 <br/>
 
-| 값 |
+| 시스템 환경 변수 설정 |
 |---|
 | <img src="/asset/study/blockchain/2/8.png"> |
 
