@@ -90,6 +90,10 @@ c:\Users\MarkLee\geth
 
 <br/>
 
+| 값 | 의미 | 기본값 |
+|---|:---:|---:|
+| `static` |
+
 <table border=1 background-color='#F0F0F0'>
 <tr>
 <td>
