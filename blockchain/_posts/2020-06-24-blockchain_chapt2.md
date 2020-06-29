@@ -101,12 +101,10 @@ c:\Users\MarkLee\geth
 [그림 8] 고급 시스템 설정
 ![](/asset/study/blockchain/2/8.png)
 
-
 시스템 속성 설정창에서 [환경 변수] 부분을 클릭 한다.
 
 ![](/asset/study/blockchain/2/9.png)
 [그림 9] 시스템 Path 선택
-
 
 하단의 "시스템 변수(S)" 부분에서 "Path" 부분을 선택한 후 [편집] 버튼을 클릭한다.
 ![](/asset/study/blockchain/2/10.png)
