@@ -92,7 +92,8 @@ c:\Users\MarkLee\geth
 
 | 값 | 의미 | 기본값 |
 |---|:---:|---:|
-| `static` |
+| `static` | 유형(기준) 없음 / 배치 불가능 | `static` |
+
 
 <table border=1 background-color='#F0F0F0'>
 <tr>
