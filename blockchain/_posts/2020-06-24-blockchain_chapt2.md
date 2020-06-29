@@ -90,7 +90,7 @@ c:\Users\MarkLee\geth
 
 <br/>
 
-| 시스템 환경 변수 설정 |
+| style="background-color:#f0f0f0;" 시스템 환경 변수 설정 |
 |---|
 | <img src="/asset/study/blockchain/2/8.png"> |
 
