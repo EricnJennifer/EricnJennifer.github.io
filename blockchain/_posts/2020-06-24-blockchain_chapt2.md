@@ -92,33 +92,24 @@ c:\Users\MarkLee\geth
 
 | style="background-color:#f0f0f0;" 시스템 환경 변수 설정 |
 |---|
-| <img src="/asset/study/blockchain/2/8.png"> |
-
-
-<table border=1 background-color='#F0F0F0'>
-<tr>
-<td>
-시스템 환경 변수 설정
-
+|
 윈도우 시스템은 실행 파일의 경로를 PATH에 기록하여 어떠한 디렉터리에서도 실행이 가능하도록 설정해 놓을 수 있다. [제어판] → [시스템 보안] → [시스템]으로 이동한 후 왼쪽의 [고급 시스템 설정]을 클릭한다.
-<br>
-<img src="/asset/study/blockchain/2/8.png">
+<br> 
+<img src="/asset/study/blockchain/2/8.png"> 
 [그림 8] 고급 시스템 설정
-![](/asset/study/blockchain/2/8.png)
-
+<br>
 시스템 속성 설정창에서 [환경 변수] 부분을 클릭 한다.
-
-![](/asset/study/blockchain/2/9.png)
+<br>
+<img src="/asset/study/blockchain/2/9.png">
 [그림 9] 시스템 Path 선택
-
+<br>
 하단의 "시스템 변수(S)" 부분에서 "Path" 부분을 선택한 후 [편집] 버튼을 클릭한다.
-![](/asset/study/blockchain/2/10.png)
+<img src="/asset/study/blockchain/2/10.png">
+<br>
 [그림 10] 환경 변수 추가
-
+<br>
 환경 변수 부분에 설치한 "Geth" 의 경로가 나타나지 않는다면 [새로 만들기(N)]를 클릭하여 설치된 경로를 추가하여 주면 된다.
-</td>
-</tr>
-</table>
+|
 
 <br/><br/>
 
