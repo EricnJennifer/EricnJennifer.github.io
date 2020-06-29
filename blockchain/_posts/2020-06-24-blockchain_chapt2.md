@@ -90,9 +90,9 @@ c:\Users\MarkLee\geth
 
 <br/>
 
-| 값 | 의미 | 기본값 |
-|---|:---:|---:|
-| `static` | 유형(기준) 없음 / 배치 불가능 | `static` |
+| 값 |
+|---|
+| <img src="/asset/study/blockchain/2/8.png"> |
 
 
 <table border=1 background-color='#F0F0F0'>
