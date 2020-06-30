@@ -140,3 +140,33 @@ c:\Users\MarkLee\geth
 {: .borderBox}
 
 <br/><br/>
+
+#### 1.1.1 Geth 클라이언트 계좌 생성 및 조회
+<br/>
+사설 네트워크의 구축에 앞서 Geth 클라이언트용 계좌(Account)를 개설한다. 처음 생성하는 계좌는 "Base Address" 또는 "Coin base"라고 부르며 추후 채굴(mining)을 하면 모든 이더(Ether)가 쌓이는 기본 계정이다. 
+
+```bash
+geth --datadir "c:\geth\data" account new
+```
+<br/>
+![](/asset/study/blockchain/2/11.png)
+[그림 11] 계정의 생성 및 Key File의 확인
+{: .borderBox}
+
+<br/><br/>
+"--datadir" 옵션을 지정하여 생성되는 계좌의 정보가 저장될 위치(실제 계좌의 정보는 해당 디렉터리 밑에 "keystore"에 저장된다) 를 지정하고 신규 계정을 생성하는 명령어를 실행하면 해당 계좌에 대한 비밀 번호를 입력하라고 요청 받는다. 비밀번호와 확인을 위해 두번의 동일한 비밀번호를 입력하면 "Geth"에서 사용할 수 있는 계좌가 "0x 05f32de3f4abb1ca3a2de5fa8842d39fc462ecb1"와 같이 생성된다(이 주소는 각자 다르게 생성된다).
+<br/><br/>
+위에서 지정한 "--datadir" 밑의 "keystore" 디렉터리로 이동하면 실제 하나의 데이터 파일이 생성된 것을 확인할 수 있다. 파일의 내용은 생성된 주소와 암호화된 개인키 정보 등을 포함하고 있는 JSON 형태로 되어있다. 이 파일은 실제 비밀번호만 알고 있으면 복호화 할 수 있으며, 복호화된 개인키로 계정을 이용할 수 있기 때문에 잘 보관하여야 한다.
+<br/><br/>
+생성된 계좌의 목록은 "account list"를 통해 확인할 수 있다.
+<br/><br/>
+
+```bash
+geth --datadir "c:\geth\data" account list
+```
+<br/>
+![](/asset/study/blockchain/2/12.png)
+[그림 12] 생성된 계좌의 목록 확인
+{: .borderBox}
+
+<br/><br/>
