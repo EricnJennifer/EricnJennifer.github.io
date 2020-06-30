@@ -214,3 +214,118 @@ geth --datadir "c:\geth\data" init "c:/geth/script/genesis.json"
 <br/><br/>
 정상적으로 Genesis 블록이 생성되었으면 “Successfully wrote genesis state” 문구가 화면에 나타난다.
 <br/><br/>
+#### 1.1.3 사설 이더리움 네트워크 실행
+<br/>
+"Geth" 이더리움 클라이언트는 두가지 모드로 실행이 가능하다.
+<br/>
+<br/>
+1)	단순 이더리움 클라이언트 실행:
+<br/>
+추가적인 설정의 변경없이 기동하는 경우.
+<br/>
+<br/>
+2)	이더리움 클라이언트 실행과 동시에 자바스크립트 콘솔 환경으로 접근:
+<br/>
+API를 이용하여 옵션을 조정하거나 채굴, 계좌의 생성 등을 수행할 수 있다. 콘솔 환경을 구동하고자 하는 경우에는 옵션 부분에 "console"을 추가한다.
+이제 제네시스 블록까지 생성을 마쳤으므로 사설 이더리움을 동작하기 1.1에서 알아본 옵션을 이용하여 다음과 같이 실행한다.
+<br/>
+<br/>
+
+```bash
+geth --identity “MyNetwork” --networkid 15 --datadir "c:/geth/data" --port "30303" --rpc --rpcaddr 0.0.0.0 --rpcport "8545" --rpcapi "eth, net, web3, miner" --rpccorsdomain "*" --nodiscover --nat "any" console
+```
+
+<br/>
+
+![](/asset/study/blockchain/2/14.png)
+[그림 14] 외부 접속을 지원하는 환경의 Geth
+{: .borderBox}
+ 
+<br/>
+정상적으로 수행되면 명령 프롬프트로 돌아오지 않고 Console을 이용하여 이더리움이 제공하는 기능들을 활용할 수 있도록 ">" 프롬프트가 나타난다(나오지 않는 경우에는 엔터키를 치면 나타날 것이다).
+<br/>
+<br/>
+#### 1.1.4 Geth 콘솔의 활용
+<br/>
+우리는 "Geth"를 실행시키면서 맨 뒤에 "console"을 명시하여 자바스크립트 콘솔 모드에서 명령어 수행이 가능하다고 이야기하였다. 여기서는 몇가지 기능을 테스트해 보도록 하겠다.
+<br/>
+<br/>
+1)	계좌 목록(accounts) 및 잔고(balance) 확인
+<br/>
+클라이언트 노드에 계설된 계좌는 "account"라고 하며 목록을 확인하기 위하여 "eth.accounts"를 사용한다. 
+
+```bash
+> eth.accounts
+```
+<br/>
+
+![](/asset/study/blockchain/2/15.png)
+[그림 15] 계정 목록의 확인 - eth.accounts
+{: .borderBox}
+
+<br/>
+우리는 먼저 "Geth"를 생성하고 하나의 계좌를 생성하였다. 동일한 계좌의 목록이 조회됨을 확인할 수 있다. 조금 눈치가 빠른 독자의 경우에는 "account"라는 메소드를 사용하지 않고 "accounts"라는 복수형 이름을 사용한 것을 알 수 있을 것이다. "Geth"의 계정은 리스트 형태로 관리되며 각각의 인덱스를 이용하여 접근할 수 있기 때문에 "accounts"를 사용하는 것이다.
+<br/>
+특정 계좌의 잔고를 확인하기 위하여 "eth.getBalance()"를 사용한다
+<br/>
+
+```bash
+> eth.getBalance(eth.accounts[0])
+> eth.getBalance(eth.coinbase)
+```
+
+<br/>
+
+![](/asset/study/blockchain/2/16.png)
+[그림 16] 계정 잔고의 확인 - eth.getBalance()
+{: .borderBox}
+
+<br/>
+제일 먼저 생성한 계좌는 accounts[0]에 저장되어 있으며, 모든 채굴된 이더가 모인다는 의미로 "coinbase"로 지정되어 있다. 앞서 제네시스 블록을 생성하면서 계좌에 "300000000"을 할당하였는데 정상적으로 입금되어 있는 것을 확인할 수 있다. 이더리움 네트워크의 계좌가 가지고 있는 이더는 "wei"라는 가장 작은 값을 기준으로 계산된다. 1이더는 1018 wei이다. 다음은 이더의 단위를 나타낸다.
+<br/>
+
+명칭|Wei 기준|Ether 기준
+WEI | 1 | 0.000000000000000001
+Ada |1000 | 0.000000000000001
+Fentoether| 1000 | 0.000000000000001
+Kwei| 1000 | 0.000000000000001
+Mwei | 1000000 | 0.000000000001
+Babbage | 1000000 | 0.000000000001
+Pictoether | 1000000 | 0.000000000001
+Shannon | 1000000000 | 0.000000001
+Gwei | 1000000000 | 0.000000001
+Nano | 1000000000 | 0.000000001
+Szabo | 1000000000000 | 0.000001
+Micro |1000000000000 | 0.000001
+Microether | 1000000000000 | 0.000001
+Finney | 1000000000000000 | 0.001
+Milli | 1000000000000000 | 0.001
+Milliether | 1000000000000000 | 0.001
+Ether | 1000000000000000000 | 1
+
+<br/>
+출력값을 이더로 변경하고 싶은 경우에는 "web3.fromWei()"를 사용하여 단위 변환이 가능하다
+<br/>
+
+![](/asset/study/blockchain/2/17.png)
+[그림 17] 계정 잔고의 단위 변환 - web3.fromWei()
+{: .borderBox}
+
+<br/>
+2) 채굴(Mining)
+<br/>
+이더리움은 거래가 이루어지는 경우 채굴을 통하여 블록에 거래의 내역을 쓰는 과정이 이루어진다. 즉, 스마트 컨트랙트를 작성하고 개인 네트워크에 올려 놓았다 할지라도 채굴이 이루어지지 않으면 그 거래는 블록체인 내에 기록되지 않는다는 것을 의미한다.
+<br/>
+채굴 기능을 활성화 하는 방법은 geth를 실행시킬 때 인자로 "--mine" 옵션을 함께 넣어주는 방법과 콘솔에서 실행시키는 방법을 사용할 수 있다. 콘솔 상태에서 채굴을 시작하기 위해서는 프롬프트 상에서 "miner.start()"를 실행시킨다. 이 때 miner는 "--rpcapi" 옵션에서 "miner" API를 추가한 상태여야 한다.
+<br/>
+
+```bash
+> miner.start()
+> miner.stop()
+```
+
+<br/>
+
+![](/asset/study/blockchain/2/18.png)
+[그림 18] 채굴의 시작과 종료 - miner.start() / miner.stop()
+{: .borderBox}
