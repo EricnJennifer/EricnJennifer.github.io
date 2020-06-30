@@ -1,10 +1,10 @@
 ---
 layout: post_study
-title:  스마트 컨트랙트(Smart Contarct) 개발환경 구축
+title:  스마트 컨트랙트(Smart Contarct) 개발환경 구축 : Geth
 date: 2020-06-24 01:01:01
 categories: blockchain
 ---
-## 스마트 컨트랙트(Smart Contarct) 개발환경 구축
+## 스마트 컨트랙트(Smart Contarct) 개발환경 구축: Geth
 <br/><br/>
 블록체인은 중앙 집중화된 서버의 형식으로 동작하지 않고 각각의 노드들이 분산 되어 서로간의 연결(Peer to peer)로 이루져 있다. 이렇게 서로 노드간의 통신을 할 수 있는 표준을 준수하는 프로그램들을 "이더리움 클라이언트 프로그램"이라고 정의한다. 이더리움 클라이언트는 다양한 언어로 개발할 수 있으며 그중 많이 사용하는 것이 구글에서 개발하는 "GO" 언어로 개발된 "Go Ethereum"이다.
 <br/><br/>
