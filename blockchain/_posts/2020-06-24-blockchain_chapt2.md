@@ -172,3 +172,45 @@ geth --datadir "c:\geth\data" account list
 {: .borderBox}
 
 <br/><br/>
+#### 1.1.2 사설 네트워크(Private Network)의 제네시스 블록 정의
+<br/>
+제네시스 블록은 이더리움 블록의 가장 첫번째 블록으로 이전 블록에 대한 정보를 가지고 있지 않는 유일한 블록이다. 제네시스 블록은 사설 네트워크의 특성을 정의하는 최초의 블록이며 사설 네트워크를 구성하는 경우 정의가 필요하다. 제네시스 블록은 json 형태로 구성된다. 다음은 제네시스 블록의 예이다.
+<br/>
+
+```
+{
+    "config": {
+        "chainId": 15, 
+        "homesteadBlock": 0,
+        "eip155Block": 0,
+        "eip158Block": 0
+    },
+    "difficulty" : "1024",
+    "gasLimit" : "2100000",
+    "alloc": {
+        "05f32de3f4abb1ca3a2de5fa8842d39fc462ecb1": {"balance": "300000000"}
+    }
+}
+```
+
+<br/>
+
+![](/asset/study/blockchain/2/table2.png)
+{: .borderBox}
+
+<br/>
+Genesis 블록을 생성하기 위하여 앞에서 생성한 json형태의 스크립트를 메모장등을 이용하여 작성한 후 저장하고 “init” 인자를 이용하여 geth를 실행한다(예제에서는 c:/geth/script 디렉터리 밑에 genesis.json 파일명으로 저장하였다).
+<br/>
+
+```bash
+geth --datadir "c:\geth\data" init "c:/geth/script/genesis.json"
+```
+<br/>
+
+![](/asset/study/blockchain/2/13.png)
+[그림 13] 제네시스 블록의 생성
+{: .borderBox}
+ 
+<br/><br/>
+정상적으로 Genesis 블록이 생성되었으면 “Successfully wrote genesis state” 문구가 화면에 나타난다.
+<br/><br/>
