@@ -149,6 +149,7 @@ c:\Users\MarkLee\geth
 geth --datadir "c:\geth\data" account new
 ```
 <br/>
+
 ![](/asset/study/blockchain/2/11.png)
 [그림 11] 계정의 생성 및 Key File의 확인
 {: .borderBox}
@@ -165,6 +166,7 @@ geth --datadir "c:\geth\data" account new
 geth --datadir "c:\geth\data" account list
 ```
 <br/>
+
 ![](/asset/study/blockchain/2/12.png)
 [그림 12] 생성된 계좌의 목록 확인
 {: .borderBox}
